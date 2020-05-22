@@ -1,0 +1,292 @@
+%!TEX program = pdflatex
+\documentclass[12pt]{beamer}
+\usepackage[UTF8,space=auto,scheme=plain]{ctex}
+\usepackage{anyfontsize}
+\usepackage[english]{babel}
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\normalfont\bfseries}
+\usepackage{amsmath,amssymb}
+\usepackage{bookmark}
+\usetheme[sectionpage=none]{metropolis}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{theorems}[numbered]
+\setbeamercovered{transparent}
+\usefonttheme[onlymath]{serif}
+%\usefonttheme{serif}
+
+\setlength\abovecaptionskip{-1pt}
+\setlength\belowcaptionskip{-1pt}
+% adjust the space between caption and figure and table
+\usefonttheme{professionalfonts}
+
+
+%\titlegraphic{\includegraphics[width=1cm]{logo.png}}
+%\usepackage[protrusion,expansion,kerning,spacing,final]{microtype}
+%\microtypecontext{spacing=nonfrench}
+
+
+%\usepackage{libertine}
+%\usepackage{libertinust1math}
+%\usepackage[scale=0.8]{newtxtt}
+
+%\setbeamerfont{normal text}{family=\kaishu\sffamily}
+%\setbeamerfont{frametitle}{family=\large\bfseries\sffamily}
+%\setbeamerfont{title}{family=\bfseries}
+%\setbeamerfont{subtitle}{family=\kaishu}
+%\setbeamerfont{institute}{size=\small}
+%\definecolor{iron}{RGB}{0,82,67}
+%\setbeamercolor{frametitle}{bg=iron}
+%\setbeamercolor{progress bar}{fg=iron,bg=iron}
+
+\setbeamerfont{normal text}{family=\songti}
+\setbeamerfont{frametitle}{family=\large\bfseries}
+\setbeamerfont{title}{family=\bfseries}
+\setbeamerfont{subtitle}{family=\kaishu}
+\setbeamerfont{institute}{size=\small}
+\definecolor{iron}{RGB}{0,82,67}
+\setbeamercolor{frametitle}{bg=iron}
+\setbeamercolor{progress bar}{fg=iron,bg=iron}
+
+
+%%%%%
+\definecolor{bg1}{RGB}{38,38,134}
+\definecolor{bg2}{RGB}{233,233,243}
+\definecolor{bg3}{RGB}{0,96,0}
+\definecolor{bg4}{RGB}{229,239,229}
+\definecolor{bg5}{RGB}{191,0,0}
+\definecolor{bg6}{RGB}{248,229,229}
+\setbeamercolor{block title}{fg=white,bg=bg1}
+\setbeamercolor{block body}{bg=bg2}
+\setbeamercolor{block title example}{fg=white,bg=bg3}
+\setbeamercolor{block body example}{bg=bg4}
+\setbeamercolor{block title alerted}{fg=white,bg=bg5}
+\setbeamercolor{block body alerted}{bg=bg6}
+%%%%
+
+
+
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{thm}{Theorem}
+\numberwithin{thm}{section}
+\newtheorem{defn}{Definition}
+\numberwithin{defn}{section}
+\newtheorem{lmm}{Lemma}
+\numberwithin{lmm}{section}
+\newtheorem{pro}{Proof}
+\theoremstyle{example}
+\newtheorem{exam}{Example}
+%\numberwithin{exam}{section}
+
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamerfont{section in toc}{family=\heiti\sffamily}
+\setbeamerfont{myTOC}{}
+\AtBeginSection[]{\frame{\frametitle{目录}%
+                  \usebeamerfont{myTOC}\tableofcontents[current]}}
+
+\setcounter{tocdepth}{1}
+\makeatletter
+\setbeamertemplate{frametitle}[default][left,leftskip=\the\dimexpr\beamer@leftmargin-0.6cm\relax]
+\makeatother
+
+
+\setbeamertemplate{footline}
+{%
+   \leavevmode%
+ \hskip1cm \fangsong \insertshortauthor \quad $|$ \quad \insertshorttitle \hfill \normalfont  \insertframenumber\,/\,\inserttotalframenumber  \hskip1cm \hfill
+   \vskip6pt%
+}
+
+\graphicspath{{image/}{figure/}{fig/}{img/}}
+\usepackage{booktabs}
+\usepackage{silence}
+\WarningFilter{latexfont}{Font shape}
+\let\scshape\relax
+\usepackage{type1cm}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+
+%----------------------------------------------------------------------------------------
+
+\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{John Smith} % Your name
+\institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+University of California \\ % Your institution for the title page
+\medskip
+\textit{john@smith.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}\frametitle{目录}
+\tableofcontents
+\end{frame}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{第一节} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{第一节第一小节} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Bullet Points}
+\begin{itemize}
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
+\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
+\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
+\item Nam cursus est eget velit posuere pellentesque
+\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Blocks of Highlighted Text}
+\begin{block}{Block 1}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+\end{block}
+
+\begin{exampleblock}{Block 2}
+Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+\end{exampleblock}
+
+\begin{alertblock}{Block 3}
+Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Multiple Columns}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\textbf{Heading}
+\begin{enumerate}
+\item Statement
+\item Explanation
+\item Example
+\end{enumerate}
+
+\column{.5\textwidth} % Right column and width
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\section{第二节}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Table}
+\begin{table}
+\caption{Table caption}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Theorem}
+\begin{thm}[Mass--energy equivalence]
+$E = mc^2$
+\end{thm}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Verbatim}
+\begin{exam}[Theorem Slide Code]
+\begin{verbatim}
+\begin{frame}
+\frametitle{Theorem}
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
+\end{frame}\end{verbatim}
+\end{exam}
+\end{frame}
+
+%------------------------------------------------
+
+
+
+
+\begin{frame}
+\frametitle{Figure}
+\begin{lmm}[cf. Wang2010]
+  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
+  \begin{equation}\label{ProjIneqn}
+    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
+  \end{equation}
+\end{lmm}
+
+Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
+%\begin{figure}
+%\includegraphics[width=0.8\linewidth]{test}
+%\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+
+\frametitle{Citation}
+An example of the \verb|\cite| command to cite within the presentation:\\~
+
+This statement requires citation \cite{p1}.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Smith, 2012]{p1} John Smith (2012)
+\newblock Title of the publication
+\newblock \emph{Journal Name} 12(3), 45 -- 678.
+\end{thebibliography}
+}
+\end{frame}
+
+
+
+\begin{frame}[standout]
+  \Huge Thank you!
+\end{frame}
+
+\end{document}
+
