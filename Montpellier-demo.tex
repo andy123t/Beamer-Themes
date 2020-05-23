@@ -1,7 +1,19 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
 \documentclass[compress]{beamer}
 
 \mode<presentation> {
 \usetheme{Montpellier}
+
+%\usecolortheme{lily}
+%\usecolortheme{whale}
+%\usecolortheme{dolphin}
+%\usecolortheme{seahorse}
 
 \setbeamercovered{transparent}
 \usefonttheme[onlymath]{serif}
@@ -10,6 +22,15 @@
 %\setbeamertemplate{footline}[page number]
 %\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
 \setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamertemplate{footline}{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern1em\vskip2pt%
+}
+
 }
 %\addtobeamertemplate{headline}{	% title & chaptername (first headline)
 %\begin{beamercolorbox}{section in head/foot}
@@ -23,7 +44,7 @@
 \begin{beamercolorbox}{section in head/foot}
    \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
 \end{beamercolorbox}
-\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}		% separator
+\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}  % separator [colsep=1.5pt,ht=.3ex]
 \end{beamercolorbox}
 }
 %\setbeamercolor{upper separation line head}{bg=red}
@@ -40,28 +61,64 @@
 %  \vskip0pt%
 %}
 
-\setbeamertemplate{footline}
-{
-  \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle \hfill
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-    \insertframenumber\,/\,\inserttotalframenumber\hspace*{2ex}
-  \end{beamercolorbox}}%
-  \vskip0pt%
-}
+%\setbeamertemplate{footline}
+%{
+%  \leavevmode%
+%  \hbox{%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle \hfill
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+%    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+%    \insertframenumber\,/\,\inserttotalframenumber\hspace*{2ex}
+%  \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
+
 
 \setbeamertemplate{theorems}[numbered]
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
+
+
+\usepackage{amsmath}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+\usepackage[english]{babel}  % Show english numerate
+\usepackage{epsfig,amssymb,amsmath,version}
+\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
+\usepackage{epstopdf}
+\usepackage{url,hyperref}
+
+\usepackage{color,xcolor}
+\usepackage{cases}
+\usepackage{mathtools}
+%\usepackage[UTF8,noindent]{ctex}
+
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{thm}{Theorem}
+\numberwithin{thm}{section}
+\newtheorem{defn}{Definition}
+\numberwithin{defn}{section}
+\newtheorem{lmm}{Lemma}
+\numberwithin{lmm}{section}
+\newtheorem{pro}{Proof}
+\theoremstyle{example}
+\newtheorem{exam}{Example}
+%\numberwithin{exam}{section}
+
+
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
 
 \AtBeginSection[]
 { \begin{frame}
@@ -71,21 +128,17 @@
   \addtocounter{framenumber}{-1}  %目录页不计算页码
 }
 
-
-\usepackage{amsmath}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-
-%\usepackage[UTF8,fntef]{ctexcap}
-\usepackage[english]{babel} %show english numerate
-\usepackage{epsfig,amssymb,amsmath,version}
-\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
-\usepackage{epstopdf}
-\usepackage{url,hyperref}
-
-\usepackage{color,xcolor}
-\usepackage{cases}
-\usepackage{mathtools}
+%\AtBeginSubsection[]
+%{
+%	\begin{frame}[shrink]
+%   \frametitle{Overview}
+%	%\thispagestyle{empty}
+%	\addtocounter{framenumber}{-1}
+%	\tableofcontents[
+%	sectionstyle=show/shaded,
+%	subsectionstyle=show/shaded/hide]
+%\end{frame}
+%}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -102,11 +155,17 @@ University of California \\ % Your institution for the title page
 }
 \date{\today} % Date, can be changed to a custom date
 
+
+\graphicspath{{./Figures/}}
+
 \begin{document}
 
+%\thispagestyle{empty}
+{\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
+}
 
 \begin{frame}
 \frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -134,7 +193,7 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 
 \begin{frame}
 \frametitle{Bullet Points}
-\begin{itemize}
+\begin{itemize}[<+-| alert@+>]
 \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
 \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
 \item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
@@ -144,7 +203,6 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 \end{frame}
 
 %------------------------------------------------
-
 
 \begin{frame}
 \frametitle{Blocks of Highlighted Text}
@@ -186,12 +244,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Table}
+\frametitle{Table and Lemma}
 \begin{table}
 \caption{Table caption}
 \begin{tabular}{l l l}
 \toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+Treatments & Response 1 & Response 2 \\
 \midrule
 Treatment 1 & 0.0003262 & 0.562 \\
 Treatment 2 & 0.0015681 & 0.910 \\
@@ -199,22 +257,44 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{lmm}
+  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
+  \begin{equation}
+    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
+  \end{equation}
+\end{lmm}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
+
+\begin{thm}[Lax-Milgram Lemma]
+Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
+\begin{equation}
+  \alert{
+  \left\{\begin{aligned}
+  &\text {Find } u \in X \text { such that } \\
+  &a(u, v)=F(v), \forall v \in X
+  \end{aligned} \right. }
+\end{equation}
+has a unique solution. Moreover, we have
+
+\begin{equation}
+  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
+\end{equation}
+\end{thm}
+
 \end{frame}
 
 %------------------------------------------------
 
+
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
+\begin{exam}[Theorem Slide Code]
 \begin{verbatim}
 \begin{frame}
 \frametitle{Theorem}
@@ -222,21 +302,22 @@ $E = mc^2$
 $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
-\end{example}
+\end{exam}
+
+\begin{thm}[Mass--energy equivalence]
+$E = mc^2$
+\end{thm}
 \end{frame}
 
 %------------------------------------------------
-
-
-
 
 \begin{frame}
 \frametitle{Figure}
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{Image.eps}
+\end{figure}
 \end{frame}
 
 %------------------------------------------------
@@ -263,13 +344,14 @@ This statement requires citation \cite{p1}.
 
 %------------------------------------------------
 \thispagestyle{empty}
-\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 \begin{frame}
 \Huge{\centerline{The End}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
+%\thispagestyle{empty}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{footline}{}
 %\begin{frame}
@@ -277,7 +359,6 @@ This statement requires citation \cite{p1}.
 %\Huge \emph{\textcolor[RGB]{128,0,255}{Thanks for your attention!}}
 %\end{center}
 %\end{frame}
-
 
 
 \end{document}

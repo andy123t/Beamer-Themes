@@ -1,11 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Presentation
 % LaTeX Template
-% Version 1.0 (10/11/12)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
@@ -45,7 +40,8 @@
 %\usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
-\usepackage[UTF8,fntef]{ctexcap}
+%\usepackage[UTF8,fntef]{ctexcap}
+\usepackage[UTF8,noindent]{ctex}
 \usepackage[english]{babel} %show english numerate
 %\usepackage[adobefonts,punct,UTF8,indent,fancyhdr]{ctexcap}
 %\usepackage{CJKutf8}
@@ -96,36 +92,6 @@
 %\setbeamerfont{subtitle}{family=\kaishu}
 
 
-%%---- Basic definition ----
-%\catcode`\@=11 \theoremstyle{plain}
-%\@addtoreset{equation}{section}   % Makes \section reset 'equation' counter.
-%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
-%\@addtoreset{figure}{section}
-%\renewcommand\thefigure{\thesection.\@arabic\c@figure}
-%\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-%%\@addtoreset{theorem}{section}
-%\newtheorem{thm}{\bf Theorem}
-%\renewcommand{\thethm}{\arabic{section}.\arabic{thm}}
-%\setbeamertemplate{caption}[numbered]
-%
-%%\newenvironment{theorem}{\begin{thm}} {\end{thm}}
-%%\newtheorem{cor}{\bf Corollary}
-%%\newtheorem{prop}{Proposition}[section]
-%%\renewcommand{\thecor}{\arabic{section}.\arabic{cor}}
-%%\newenvironment{corollary}{\begin{cor}} {\end{cor}}
-%\newtheorem{lmm}{\bf Lemma}
-%\renewcommand{\thelmm}{\arabic{section}.\arabic{lmm}}
-%%\newenvironment{lemma}{\begin{lmm}}{\end{lmm}}
-%\theoremstyle{remark}
-%\newtheorem{rem}{\bf Remark}[section]
-%\theoremstyle{definition}
-%%\newtheorem{defn}{\bf Definition}[section]
-%%\newtheorem{prob}{\bf Problem}[section]
-%%\renewcommand{\thetable}{\thesection.\arabic{table}}
-%%\numberwithin{table}{section}
-%%\setbeamertemplate{lmm}[numbered]
-%%\numberwithin{lmm}{section}
-
 
 %\AtBeginSection[]
 %{ \begin{frame}
@@ -135,17 +101,25 @@
 %  \addtocounter{framenumber}{-1}  %目录页不计算页码
 %}
 
-\AtBeginSubsection[]
-{
-	\begin{frame}%[shrink]
+\AtBeginSection[]
+{ \begin{frame}
     \frametitle{目录}
-	%\thispagestyle{empty}
-	\addtocounter{framenumber}{-1}
-	\tableofcontents[
-	sectionstyle=show/shaded,
-	subsectionstyle=show/shaded/hide]
-\end{frame}
+    \tableofcontents[currentsection,currentsubsection] %hideallsubsections
+  \end{frame}
+  \addtocounter{framenumber}{-1}  %目录页不计算页码
 }
+
+%\AtBeginSubsection[]
+%{
+%	\begin{frame}%[shrink]
+%    \frametitle{目录}
+%	%\thispagestyle{empty}
+%	\addtocounter{framenumber}{-1}
+%	\tableofcontents[
+%	sectionstyle=show/shaded,
+%	subsectionstyle=show/shaded/hide]
+%\end{frame}
+%}
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -161,9 +135,23 @@
 }
 \date{\today} % Date, can be changed to a custom date
 
+\graphicspath{{./Figures/}}
+
 \begin{document}
 \songti
 
+\thispagestyle{empty}
+\setbeamertemplate{footline}%{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot} \hfill \insertshorttitle \hfill \insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
@@ -242,7 +230,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 %------------------------------------------------
 \subsection{第二节第一小节}
 \begin{frame}
-\frametitle{Table}
+\frametitle{表格和引理}
 \begin{table}
 \caption{Table caption}
 \begin{tabular}{l l l}
@@ -255,16 +243,38 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\begin{lmm}
+  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
+  \begin{equation}
+    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
+  \end{equation}
+\end{lmm}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{定理}
-\begin{thm}[Mass--energy 等价]
-$E = mc^2$
+
+\begin{thm}[Lax-Milgram Lemma]
+Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
+\begin{equation}
+  \alert{
+  \left\{\begin{aligned}
+  &\text {Find } u \in X \text { such that } \\
+  &a(u, v)=F(v), \forall v \in X
+  \end{aligned} \right. }
+\end{equation}
+has a unique solution. Moreover, we have
+
+\begin{equation}
+  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
+\end{equation}
 \end{thm}
+
 \end{frame}
+
+
 \subsection{第二节第二小节}
 %------------------------------------------------
 
@@ -279,6 +289,11 @@ $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
 \end{exam}
+
+\begin{thm}[Mass--energy 等价]
+$E = mc^2$
+\end{thm}
+
 \end{frame}
 
 %------------------------------------------------
@@ -290,9 +305,9 @@ $E = mc^2$
 \frametitle{Figure}
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{Image.eps}
+\end{figure}
 \end{frame}
 
 %------------------------------------------------
@@ -322,11 +337,11 @@ This statement requires citation \cite{p1}.
 \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{footline}{}
 %\setbeamertemplate{headline}{}
-
 \begin{frame}{}
 \Huge{\centerline{The End}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
-\end{document} 
+\end{document}
+

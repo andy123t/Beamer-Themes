@@ -9,29 +9,27 @@
 
 \mode<presentation> {
 
-\usetheme{Madrid}
-
-\setbeamercovered{transparent}
-\usefonttheme[onlymath]{serif}
-\setbeamertemplate{navigation symbols}{}
-%\setbeamertemplate{footline}{} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number]
-
 %\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
 \setbeamertemplate{blocks}[rounded][shadow=true]
+\usetheme{CambridgeUS}
+%\usetheme{Madrid}
+%\usetheme{Singapore}
+%\usetheme{Warsaw}
 
-%\setbeamertemplate{itemize items}[triangle] %[square]%[ball]
-%\setbeamertemplate{itemize items}{\color{black}$\bullet$}
+%\usecolortheme{lily}
+%\usecolortheme{seahorse}
+\setbeamertemplate{theorems}[numbered]
+\setbeamercovered{transparent}
+\usefonttheme[onlymath]{serif}
+
+%\setbeamertemplate{headline}{}  %
+%\usetheme{boxes}
+%\setbeamertemplate{footline}{}  % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols
 
 }
-
-
-\setbeamertemplate{theorems}[numbered]
-\setbeamertemplate{caption}[numbered]
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
-
 
 
 \usepackage{amsmath}
@@ -110,7 +108,6 @@ University of California \\ % Your institution for the title page
 \begin{document}
 
 %\thispagestyle{empty}
-
 {\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
@@ -266,7 +263,7 @@ $E = mc^2$
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}
-\includegraphics[width=0.8\linewidth]{Image.eps}
+\includegraphics[width=0.7\linewidth]{Image.eps}
 \end{figure}
 \end{frame}
 
@@ -293,7 +290,8 @@ This statement requires citation \cite{p1}.
 \end{frame}
 
 %------------------------------------------------
-\thispagestyle{empty}
+%\thispagestyle{empty}
+\setbeamertemplate{headline}{}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 \begin{frame}
 \Huge{\centerline{The End}}

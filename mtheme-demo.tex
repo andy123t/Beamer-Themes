@@ -85,7 +85,7 @@
 \setbeamertemplate{section in toc}[ball unnumbered]
 \setbeamerfont{section in toc}{family=\heiti\sffamily}
 \setbeamerfont{myTOC}{}
-\AtBeginSection[]{\frame{\frametitle{目录}%
+\AtBeginSection[]{\frame{\frametitle{Overview}%
                   \usebeamerfont{myTOC}\tableofcontents[current]}}
 
 \setcounter{tocdepth}{1}
@@ -101,7 +101,7 @@
    \vskip6pt%
 }
 
-\graphicspath{{image/}{figure/}{fig/}{img/}}
+\graphicspath{{image/}{Figures/}{figure/}{fig/}{img/}}
 \usepackage{booktabs}
 \usepackage{silence}
 \WarningFilter{latexfont}{Font shape}
@@ -138,17 +138,25 @@ University of California \\ % Your institution for the title page
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
+
 %------------------------------------------------
-\section{第一节} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
 
-\subsection{第一节第一小节} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Paragraphs of Text}
+Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+
+Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+\end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{Bullet Points}
-\begin{itemize}
+\begin{itemize}[<+-| alert@+>]
 \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
 \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
 \item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
@@ -195,36 +203,57 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 \end{frame}
 
 %------------------------------------------------
-\section{第二节}
+\section{Second Section}
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Table}
+\frametitle{Table and Lemma}
 \begin{table}
 \caption{Table caption}
 \begin{tabular}{l l l}
 \toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+Treatments & Response 1 & Response 2 \\
 \midrule
 Treatment 1 & 0.0003262 & 0.562 \\
 Treatment 2 & 0.0015681 & 0.910 \\
 Treatment 3 & 0.0009271 & 0.296 \\
 \bottomrule
 \end{tabular}
-
 \end{table}
+
+\begin{lmm}
+  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
+  \begin{equation}
+    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
+  \end{equation}
+\end{lmm}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{Theorem}
-\begin{thm}[Mass--energy equivalence]
-$E = mc^2$
+
+\begin{thm}[Lax-Milgram Lemma]
+Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
+\begin{equation}
+  \alert{
+  \left\{\begin{aligned}
+  &\text {Find } u \in X \text { such that } \\
+  &a(u, v)=F(v), \forall v \in X
+  \end{aligned} \right. }
+\end{equation}
+has a unique solution. Moreover, we have
+
+\begin{equation}
+  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
+\end{equation}
 \end{thm}
+
 \end{frame}
 
 %------------------------------------------------
+
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
@@ -237,32 +266,26 @@ $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
 \end{exam}
+
+\begin{thm}[Mass--energy equivalence]
+$E = mc^2$
+\end{thm}
 \end{frame}
 
 %------------------------------------------------
 
-
-
-
 \begin{frame}
 \frametitle{Figure}
-\begin{lmm}[cf. Wang2010]
-  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
-  \begin{equation}\label{ProjIneqn}
-    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
-  \end{equation}
-\end{lmm}
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{Image.eps}
+\end{figure}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-
 \frametitle{Citation}
 An example of the \verb|\cite| command to cite within the presentation:\\~
 
@@ -283,6 +306,7 @@ This statement requires citation \cite{p1}.
 \end{frame}
 
 
+%------------------------------------------------
 
 \begin{frame}[standout]
   \Huge Thank you!

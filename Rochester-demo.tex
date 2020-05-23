@@ -9,28 +9,53 @@
 
 \mode<presentation> {
 
-\usetheme{Madrid}
-
-\setbeamercovered{transparent}
-\usefonttheme[onlymath]{serif}
-\setbeamertemplate{navigation symbols}{}
-%\setbeamertemplate{footline}{} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number]
-
-%\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
 \setbeamertemplate{blocks}[rounded][shadow=true]
+
+\usetheme[height=20pt]{Rochester}
+%\usetheme{Madrid}
+%\usetheme{Singapore}
+%\usetheme{Warsaw}
+
+%\usecolortheme{lily}
+\usecolortheme{whale}
+%\usecolortheme{dolphin}
+%\usecolortheme{seahorse}
+
+\setbeamertemplate{theorems}[numbered]
+%\setbeamercovered{transparent}
+\usefonttheme[onlymath]{serif}
+
+%\setbeamertemplate{headline}{}   % To remove the header line in all slides
+%\usetheme{boxes}
+%\setbeamertemplate{footline}{}   % To remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols
 
 %\setbeamertemplate{itemize items}[triangle] %[square]%[ball]
 %\setbeamertemplate{itemize items}{\color{black}$\bullet$}
 
+\setbeamertemplate{footline}{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern1em\vskip2pt%
 }
 
+}
 
-\setbeamertemplate{theorems}[numbered]
-\setbeamertemplate{caption}[numbered]
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
+%\setbeamertemplate{footline}
+%{%
+%  \leavevmode%
+%  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+%    \usebeamerfont{title in head/foot} \hfill \insertshorttitle \hfill \insertframenumber\,/\,\inserttotalframenumber%
+%  \end{beamercolorbox}}%
+%  \vskip0pt%
+%}
 
 
 
@@ -67,7 +92,6 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\bibliographystyle{apalike}
 
 \AtBeginSection[]
 { \begin{frame}
@@ -110,7 +134,6 @@ University of California \\ % Your institution for the title page
 \begin{document}
 
 %\thispagestyle{empty}
-
 {\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide

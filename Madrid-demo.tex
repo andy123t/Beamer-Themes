@@ -13,8 +13,6 @@
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
 \usetheme{Madrid}
-%\usetheme{Singapore}
-%\usetheme{Warsaw}
 
 \setbeamertemplate{theorems}[numbered]
 \setbeamercovered{transparent}
@@ -28,7 +26,10 @@
 
 \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 
+
 }
+
+
 \usepackage{amsmath}
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
@@ -75,36 +76,6 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-%%---- Basic definition ----
-%\catcode`\@=11 \theoremstyle{plain}
-%\@addtoreset{equation}{section}   % Makes \section reset 'equation' counter.
-%\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
-%\@addtoreset{figure}{section}
-%\renewcommand\thefigure{\thesection.\@arabic\c@figure}
-%\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-%%\@addtoreset{theorem}{section}
-%\newtheorem{thm}{\bf Theorem}
-%\renewcommand{\thethm}{\arabic{section}.\arabic{thm}}
-%\setbeamertemplate{caption}[numbered]
-%
-%%\newenvironment{theorem}{\begin{thm}} {\end{thm}}
-%%\newtheorem{cor}{\bf Corollary}
-%%\newtheorem{prop}{Proposition}[section]
-%%\renewcommand{\thecor}{\arabic{section}.\arabic{cor}}
-%%\newenvironment{corollary}{\begin{cor}} {\end{cor}}
-%\newtheorem{lmm}{\bf Lemma}
-%\renewcommand{\thelmm}{\arabic{section}.\arabic{lmm}}
-%%\newenvironment{lemma}{\begin{lmm}}{\end{lmm}}
-%\theoremstyle{remark}
-%\newtheorem{rem}{\bf Remark}[section]
-%\theoremstyle{definition}
-%%\newtheorem{defn}{\bf Definition}[section]
-%%\newtheorem{prob}{\bf Problem}[section]
-%%\renewcommand{\thetable}{\thesection.\arabic{table}}
-%%\numberwithin{table}{section}
-%%\setbeamertemplate{lmm}[numbered]
-%%\numberwithin{lmm}{section}
-
 
 \AtBeginSection[]
 { \begin{frame}
@@ -125,6 +96,7 @@
 %	subsectionstyle=show/shaded/hide]
 %\end{frame}
 %}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -140,11 +112,16 @@ University of California \\ % Your institution for the title page
 }
 \date{\today} % Date, can be changed to a custom date
 
+
+\graphicspath{{./Figures/}}
+
 \begin{document}
 
+%\thispagestyle{empty}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -172,7 +149,7 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 
 \begin{frame}
 \frametitle{Bullet Points}
-\begin{itemize}
+\begin{itemize}[<+-| alert@+>]
 \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
 \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
 \item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
@@ -223,32 +200,53 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Table}
+\frametitle{Table and Lemma}
 \begin{table}
 \caption{Table caption}
 \begin{tabular}{l l l}
 \toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+Treatments & Response 1 & Response 2 \\
 \midrule
 Treatment 1 & 0.0003262 & 0.562 \\
 Treatment 2 & 0.0015681 & 0.910 \\
 Treatment 3 & 0.0009271 & 0.296 \\
 \bottomrule
 \end{tabular}
-
 \end{table}
+
+\begin{lmm}
+  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
+  \begin{equation}
+    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
+  \end{equation}
+\end{lmm}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{Theorem}
-\begin{thm}[Mass--energy equivalence]
-$E = mc^2$
+
+\begin{thm}[Lax-Milgram Lemma]
+Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
+\begin{equation}
+  \alert{
+  \left\{\begin{aligned}
+  &\text {Find } u \in X \text { such that } \\
+  &a(u, v)=F(v), \forall v \in X
+  \end{aligned} \right. }
+\end{equation}
+has a unique solution. Moreover, we have
+
+\begin{equation}
+  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
+\end{equation}
 \end{thm}
+
 \end{frame}
 
 %------------------------------------------------
+
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
@@ -261,32 +259,26 @@ $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
 \end{exam}
+
+\begin{thm}[Mass--energy equivalence]
+$E = mc^2$
+\end{thm}
 \end{frame}
 
 %------------------------------------------------
 
-
-
-
 \begin{frame}
 \frametitle{Figure}
-\begin{lmm}[cf. Theorem 3.1 of  Wang and Guo, 2004]
-  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
-  \begin{equation}\label{ProjIneqn}
-    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
-  \end{equation}
-\end{lmm}
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-%\begin{figure}
-%\includegraphics[width=0.8\linewidth]{test}
-%\end{figure}
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{Image.eps}
+\end{figure}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-
 \frametitle{Citation}
 An example of the \verb|\cite| command to cite within the presentation:\\~
 
@@ -315,6 +307,7 @@ This statement requires citation \cite{p1}.
 
 %----------------------------------------------------------------------------------------
 
+%\thispagestyle{empty}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{footline}{}
 %\begin{frame}
@@ -322,7 +315,6 @@ This statement requires citation \cite{p1}.
 %\Huge \emph{\textcolor[RGB]{128,0,255}{Thanks for your attention!}}
 %\end{center}
 %\end{frame}
-
 
 
 \end{document}
