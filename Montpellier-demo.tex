@@ -23,13 +23,13 @@
 %\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
 \setbeamertemplate{blocks}[rounded][shadow=true]
 
-\setbeamertemplate{footline}{%
-  \hfill%
-  \usebeamercolor[fg]{page number in head/foot}%
-  \usebeamerfont{page number in head/foot}%
-  \insertframenumber \,/\,\inserttotalframenumber
-  \kern1em\vskip2pt%
-}
+%\setbeamertemplate{footline}{%
+%  \hfill%
+%  \usebeamercolor[fg]{page number in head/foot}%
+%  \usebeamerfont{page number in head/foot}%
+%  \insertframenumber \,/\,\inserttotalframenumber
+%  \kern1em\vskip2pt%
+%}
 
 }
 %\addtobeamertemplate{headline}{	% title & chaptername (first headline)
@@ -47,7 +47,7 @@
 \begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}  % separator [colsep=1.5pt,ht=.3ex]
 \end{beamercolorbox}
 }
-%\setbeamercolor{upper separation line head}{bg=red}
+%\setbeamercolor{upper separation line head}{bg=red}%{shadow theme}
 
 %\defbeamertemplate*{footline}{shadow theme}
 %{%
@@ -61,22 +61,23 @@
 %  \vskip0pt%
 %}
 
-%\setbeamertemplate{footline}
-%{
-%  \leavevmode%
-%  \hbox{%
-%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-%    \usebeamerfont{author in head/foot}\insertshortauthor
-%  \end{beamercolorbox}%
-%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-%    \usebeamerfont{title in head/foot}\insertshorttitle \hfill
-%  \end{beamercolorbox}%
-%  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-%    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-%    \insertframenumber\,/\,\inserttotalframenumber\hspace*{2ex}
-%  \end{beamercolorbox}}%
-%  \vskip0pt%
-%}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle \hfill
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber\,/\,\inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
 
 
 \setbeamertemplate{theorems}[numbered]
@@ -161,11 +162,11 @@ University of California \\ % Your institution for the title page
 \begin{document}
 
 %\thispagestyle{empty}
-{\setbeamertemplate{headline}{}
+%{\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
-}
+%}
 
 \begin{frame}
 \frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -343,8 +344,9 @@ This statement requires citation \cite{p1}.
 \end{frame}
 
 %------------------------------------------------
-\thispagestyle{empty}
+%\thispagestyle{empty}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+\setbeamertemplate{headline}{}
 \begin{frame}
 \Huge{\centerline{The End}}
 \end{frame}
