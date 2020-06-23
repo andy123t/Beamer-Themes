@@ -1,135 +1,74 @@
-%!TEX program = pdflatex
-\documentclass[12pt]{beamer}
-\usepackage[UTF8,space=auto,scheme=plain]{ctex}
-\usepackage{anyfontsize}
-\usepackage[english]{babel}
-\usepackage{scrextend}
-\addtokomafont{labelinglabel}{\normalfont\bfseries}
-\usepackage{amsmath,amssymb}
-\usepackage{bookmark}
-\usetheme[sectionpage=none]{metropolis}
-\setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamertemplate{theorems}[numbered]
-\setbeamercovered{transparent}
+\documentclass[11pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\metroset{block=fill}
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
 \usefonttheme[onlymath]{serif}
-%\usefonttheme{serif}
-
-\setlength\abovecaptionskip{-1pt}
-\setlength\belowcaptionskip{-1pt}
-% adjust the space between caption and figure and table
-\usefonttheme{professionalfonts}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+%\newtheorem{lemma}[theorem]{Lemma}
 
 
-%\titlegraphic{\includegraphics[width=1cm]{logo.png}}
-%\usepackage[protrusion,expansion,kerning,spacing,final]{microtype}
-%\microtypecontext{spacing=nonfrench}
 
+%\usepackage[english]{babel}  % Show english numerate
+%\usepackage{epsfig,amssymb,amsmath,version}
+%\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
+\usepackage{epstopdf}
+\usepackage{url,hyperref}
+%
+%\usepackage{newtxtext}
+\usepackage{color,xcolor}
+%\usepackage{cases}
+%\usepackage{mathtools}
 
-%\usepackage{libertine}
-%\usepackage{libertinust1math}
-%\usepackage[scale=0.8]{newtxtt}
-
-%\setbeamerfont{normal text}{family=\kaishu\sffamily}
-%\setbeamerfont{frametitle}{family=\large\bfseries\sffamily}
+%\setbeamerfont{normal text}{family=\songti}
+%\setbeamerfont{frametitle}{family=\large\bfseries}
 %\setbeamerfont{title}{family=\bfseries}
 %\setbeamerfont{subtitle}{family=\kaishu}
 %\setbeamerfont{institute}{size=\small}
-%\definecolor{iron}{RGB}{0,82,67}
-%\setbeamercolor{frametitle}{bg=iron}
-%\setbeamercolor{progress bar}{fg=iron,bg=iron}
-
-\setbeamerfont{normal text}{family=\songti}
-\setbeamerfont{frametitle}{family=\large\bfseries}
-\setbeamerfont{title}{family=\bfseries}
-\setbeamerfont{subtitle}{family=\kaishu}
-\setbeamerfont{institute}{size=\small}
 \definecolor{iron}{RGB}{0,82,67}
 \setbeamercolor{frametitle}{bg=iron}
-\setbeamercolor{progress bar}{fg=iron,bg=iron}
+%\setbeamercolor{progress bar}{fg=iron,bg=iron}
 
+%\title{Metropolis}
+%\subtitle{A modern beamer theme}
+%\date{\today}
+%\author{Matthias Vogelgesang}
+%\institute{Center for modern beamer themes}
 
-%%%%%
-\definecolor{bg1}{RGB}{38,38,134}
-\definecolor{bg2}{RGB}{233,233,243}
-\definecolor{bg3}{RGB}{0,96,0}
-\definecolor{bg4}{RGB}{229,239,229}
-\definecolor{bg5}{RGB}{191,0,0}
-\definecolor{bg6}{RGB}{248,229,229}
-\setbeamercolor{block title}{fg=white,bg=bg1}
-\setbeamercolor{block body}{bg=bg2}
-\setbeamercolor{block title example}{fg=white,bg=bg3}
-\setbeamercolor{block body example}{bg=bg4}
-\setbeamercolor{block title alerted}{fg=white,bg=bg5}
-\setbeamercolor{block body alerted}{bg=bg6}
-%%%%
-
-
-
-\setbeamertemplate{theorems}[numbered]
-\newtheorem{thm}{Theorem}
-\numberwithin{thm}{section}
-\newtheorem{defn}{Definition}
-\numberwithin{defn}{section}
-\newtheorem{lmm}{Lemma}
-\numberwithin{lmm}{section}
-\newtheorem{pro}{Proof}
-\theoremstyle{example}
-\newtheorem{exam}{Example}
-%\numberwithin{exam}{section}
-
-\setbeamertemplate{caption}[numbered]
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
-
-\setbeamertemplate{section in toc}[ball unnumbered]
-\setbeamerfont{section in toc}{family=\heiti\sffamily}
-\setbeamerfont{myTOC}{}
-\AtBeginSection[]{\frame{\frametitle{Overview}%
-                  \usebeamerfont{myTOC}\tableofcontents[current]}}
-
-\setcounter{tocdepth}{1}
-\makeatletter
-\setbeamertemplate{frametitle}[default][left,leftskip=\the\dimexpr\beamer@leftmargin-0.6cm\relax]
-\makeatother
-
-
-\setbeamertemplate{footline}
-{%
-   \leavevmode%
- \hskip1cm \fangsong \insertshortauthor \quad $|$ \quad \insertshorttitle \hfill \normalfont  \insertframenumber\,/\,\inserttotalframenumber  \hskip1cm \hfill
-   \vskip6pt%
-}
-
-\graphicspath{{image/}{Figures/}{figure/}{fig/}{img/}}
-\usepackage{booktabs}
-\usepackage{silence}
-\WarningFilter{latexfont}{Font shape}
-\let\scshape\relax
-\usepackage{type1cm}
-\AtBeginDocument{\usebeamerfont{normal text}}
-
-
-%----------------------------------------------------------------------------------------
-
-\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
-
-\author{John Smith} % Your name
-\institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-{
-University of California \\ % Your institution for the title page
-\medskip
-\textit{john@smith.com} % Your email address
+\title[Short title]{Full Title of the Talk}
+\subtitle{A modern beamer theme}
+\author{Matthias Vogelgesang} % Your name
+\institute{Center for modern beamer themes \\ % Your institution for the title page
+%\medskip
+%\textit{john@smith.com} % Your email address
 }
 \date{\today} % Date, can be changed to a custom date
+
+
+\graphicspath{{./Figures/}}
+
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
 
 \begin{document}
 
 \maketitle
 
-
-\begin{frame}\frametitle{目录}
-\tableofcontents
+\begin{frame}{Table of contents}
+  %\bfseries
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
 \end{frame}
 
 
@@ -137,7 +76,6 @@ University of California \\ % Your institution for the title page
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
-
 
 %------------------------------------------------
 \section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
@@ -221,12 +159,12 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \end{tabular}
 \end{table}
 
-\begin{lmm}
+\begin{lemma}[Lemma]
   For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
   \begin{equation}
     \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
   \end{equation}
-\end{lmm}
+\end{lemma}
 \end{frame}
 
 %------------------------------------------------
@@ -234,7 +172,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \begin{frame}
 \frametitle{Theorem}
 
-\begin{thm}[Lax-Milgram Lemma]
+\begin{theorem}[Lax-Milgram Lemma]
 Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
 \begin{equation}
   \alert{
@@ -248,7 +186,7 @@ has a unique solution. Moreover, we have
 \begin{equation}
   \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
 \end{equation}
-\end{thm}
+\end{theorem}
 
 \end{frame}
 
@@ -257,7 +195,7 @@ has a unique solution. Moreover, we have
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{exam}[Theorem Slide Code]
+\begin{example}[Theorem Slide Code]
 \begin{verbatim}
 \begin{frame}
 \frametitle{Theorem}
@@ -265,11 +203,11 @@ has a unique solution. Moreover, we have
 $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
-\end{exam}
+\end{example}
 
-\begin{thm}[Mass--energy equivalence]
+\begin{theorem}[Mass--energy equivalence]
 $E = mc^2$
-\end{thm}
+\end{theorem}
 \end{frame}
 
 %------------------------------------------------
@@ -279,7 +217,7 @@ $E = mc^2$
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}
-\includegraphics[width=0.7\linewidth]{Image.eps}
+\includegraphics[width=0.8\linewidth]{Image.eps}
 \end{figure}
 \end{frame}
 
@@ -305,12 +243,34 @@ This statement requires citation \cite{p1}.
 }
 \end{frame}
 
-
-%------------------------------------------------
-
 \begin{frame}[standout]
   \Huge Thank you!
 \end{frame}
 
-\end{document}
 
+
+%\begin{frame}[standout]
+%  Questions?
+%\end{frame}
+
+%\appendix
+
+%\begin{frame}[fragile]{Backup slides}
+%  Sometimes, it is useful to add slides at the end of your presentation to
+%  refer to during audience questions.
+%
+%  The best way to do this is to include the \verb|appendixnumberbeamer|
+%  package in your preamble and call \verb|\appendix| before your backup slides.
+%
+%  \themename will automatically turn off slide numbering and progress bars for
+%  slides in the appendix.
+%\end{frame}
+
+%\begin{frame}[allowframebreaks]{References}
+%
+%  \bibliography{demo}
+%  \bibliographystyle{abbrv}
+%
+%\end{frame}
+
+\end{document}
