@@ -1,51 +1,56 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Presentation
-% LaTeX Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
+%\documentclass[notheorems,11pt]{beamer}
 \documentclass[notheorems,compress]{beamer}
 
-\mode<presentation> {
 
-%\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
-\setbeamertemplate{blocks}[rounded][shadow=true]
-%\usetheme{CambridgeUS}
-%\usetheme{Madrid}
-\usetheme{Singapore}
-%\usetheme{Warsaw}
+\usetheme{Frankfurt}
+\usecolortheme{rose}
+%\usecolortheme{whale}
 
-%\usecolortheme{lily}
-%\usecolortheme{seahorse}
-\setbeamercovered{transparent}
-\usefonttheme[onlymath]{serif}
+\usefonttheme[onlymath]{serif}  % only math serif font
 
-%\setbeamertemplate{headline}{}  %
-%\usetheme{boxes}
-%\setbeamertemplate{footline}{}  % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+% To remove the navigation symbols from the bottom of all slides uncomment this line
+\setbeamertemplate{navigation symbols}{}
 
-\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols
-
+% change the style of headline
+\setbeamertemplate{headline}{
+\begin{beamercolorbox}[ht=4.5ex]{section in head/foot}
+   \vskip2pt\insertsectionnavigationhorizontal{\textwidth}{}{}\vskip2pt
+   %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+\end{beamercolorbox}
+\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}
+\end{beamercolorbox}
 }
 
-
-\usepackage{amsmath}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\setbeamertemplate{footline}{%
+  \hfill%
+  %\usebeamercolor[fg]{page number in head/foot}%
+  \usebeamercolor[gray]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern1em\vskip2pt%
+}
 
 \usepackage[english]{babel}  % Show english numerate
-\usepackage{epsfig,amssymb,amsmath,version}
-\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
-\usepackage{epstopdf}
+\usepackage{amsthm,,amssymb,amsmath}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
 \usepackage{url,hyperref}
 
 \usepackage{color,xcolor}
 \usepackage{cases}
 \usepackage{mathtools}
-%\usepackage[UTF8,noindent]{ctex}
 
+%\usepackage{newtxtext}
+%\usepackage[UTF8,noindent]{ctex}
 
 \setbeamertemplate{theorems}[numbered]
 \newtheorem{theorem}{Theorem}
@@ -66,14 +71,13 @@
 
 \bibliographystyle{apalike}
 
-\AtBeginSection[]
-{ \begin{frame}
-    \frametitle{Overview}
-    \tableofcontents[currentsection,hideallsubsections]
-  \end{frame}
-  \addtocounter{framenumber}{-1}  %目录页不计算页码
-}
-
+%\AtBeginSection[]
+%{ \begin{frame}
+%    \frametitle{Overview}
+%    \tableofcontents[currentsection,hideallsubsections]
+%  \end{frame}
+%  \addtocounter{framenumber}{-1}  %目录页不计算页码
+%}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -96,14 +100,13 @@ Name of University \\ % Your institution for the title page
 \begin{document}
 
 %\thispagestyle{empty}
-%{\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
-%}
+
 
 \begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\frametitle{Overview}
 \tableofcontents[hideallsubsections] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
 \end{frame}
 
@@ -259,25 +262,22 @@ This statement requires citation \cite{Smith2012}.
 }
 \end{frame}
 
-
 %------------------------------------------------
-%\thispagestyle{empty}
-\setbeamertemplate{headline}{}
+\thispagestyle{empty}
+\setbeamertemplate{footline}{%
+  \hfill%
+  %\usebeamercolor[fg]{page number in head/foot}%
+  \usebeamercolor[gray]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern1em\vskip2pt%
+}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 \begin{frame}
 \Huge{\centerline{The End}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
-
-%\thispagestyle{empty}
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\setbeamertemplate{footline}{}
-%\begin{frame}
-%\begin{center}
-%\Huge \emph{\textcolor[RGB]{128,0,255}{Thanks for your attention!}}
-%\end{center}
-%\end{frame}
 
 
 \end{document}

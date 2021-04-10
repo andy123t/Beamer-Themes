@@ -6,8 +6,8 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-%\documentclass[compress]{beamer}
-\documentclass{beamer}
+%\documentclass[notheorems,compress]{beamer}
+\documentclass[notheorems]{beamer}
 
 \mode<presentation> {
 
@@ -35,20 +35,14 @@
 }
 
 
-%\usepackage{amsmath}
-%\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-
-%\usepackage[UTF8,fntef]{ctexcap}
 \usepackage[UTF8,noindent]{ctex}
 \usepackage[english]{babel} %show english numerate
-%\usepackage[adobefonts,punct,UTF8,indent,fancyhdr]{ctexcap}
-%\usepackage{CJKutf8}
-\usepackage{epsfig,amssymb,amsmath,version}
-\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
-\usepackage{epstopdf}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
 \usepackage{url,hyperref}
-
+\usepackage{tabularx,array,makecell}
 \usepackage{color,xcolor}
 \usepackage{cases}
 \usepackage{mathtools}
@@ -68,17 +62,28 @@
 %  \vskip0pt%
 %}
 
+%---------- 定理设置  --------------
 \setbeamertemplate{theorems}[numbered]
-\newtheorem{thm}{Theorem}
-\numberwithin{thm}{section}
-\newtheorem{defn}{Definition}
-\numberwithin{defn}{section}
-\newtheorem{lmm}{Lemma}
-\numberwithin{lmm}{section}
-\newtheorem{pro}{Proof}
+%\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{定理}
+\numberwithin{theorem}{section}
+%\newtheorem{definition}{Definition}
+\newtheorem{definition}{定义}
+\numberwithin{definition}{section}
+%\newtheorem{lemma}{Lemma}
+\newtheorem{lemma}{引理}
+\numberwithin{lemma}{section}
+%\newtheorem{proposition}{Proposition}
+\newtheorem{proposition}{命题}
+\numberwithin{proposition}{section}
+%\newtheorem{corollary}{Corollary}
+\newtheorem{corollary}{引理}
+\numberwithin{corollary}{section}
 \theoremstyle{example}
-\newtheorem{exam}{Example}
-%\numberwithin{exam}{section}
+%\newtheorem{example}{Example}
+\newtheorem{example}{例}
+%\numberwithin{example}{section}
+\renewcommand{\proofname}{\heiti 证明}
 
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
@@ -111,14 +116,14 @@
 
 \title[Short 题目]{Full Title of the Talk 题目} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{姓名} % Your name
-\institute[大学] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+\author{姓名}  % 名字
+\institute[NU] % 机构缩写
 {
-大学全称 \\ % Your institution for the title page
+Name of University \\ % 机构全称
 \medskip
-\textit{john@smith.com} % Your email address
+\textit{name@email.com} % 邮件
 }
-\date{\today} % Date, can be changed to a custom date
+\date[2020.6.23]{2020~年~6~月~23~日} % 日期
 
 \graphicspath{{./Figures/}}
 
@@ -139,50 +144,64 @@
 %----------------------------------------------------------------------------------------
 
 %------------------------------------------------
-\section{第一节} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+\section{文本与 Block}
 %------------------------------------------------
-
-\subsection{第一节第一小节} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}{文本测试}
-\zhlipsum[1]
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+
+\vspace{1ex}
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+
 \end{frame}
 
-%------------------------------------------------
+%-----------------------------------------------
 
-\begin{frame}
-\frametitle{Bullet Points}
-\begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-\end{itemize}
-\end{frame}
-
-%------------------------------------------------
-\subsection{第一节第二小节}
 \begin{frame}
 \frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+\begin{block}{Block Title}
+This is the block environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{block}
 
-\begin{exampleblock}{Block 2}
-Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+\begin{exampleblock}{Block Title}
+This is the exampleblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{exampleblock}
 
-\begin{alertblock}{Block 3}
-Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
+\begin{alertblock}{Block Title}
+This is the alertblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{alertblock}
 \end{frame}
 
 %------------------------------------------------
+\section{列表环境与分栏}
 
 \begin{frame}
-\frametitle{Multiple Columns}
-\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+\frametitle{列表环境}
+
+计数列表环境
+\begin{enumerate}
+\item 这是一个计数列表环境.
+\item 这是一个计数列表环境.
+\item 这是一个计数列表环境.
+\end{enumerate}
+
+\vspace{2ex}
+不计数列表环境
+\begin{itemize}[<+-| alert@+>]
+\item 这是一个不计数列表环境.
+\item 这是一个不计数列表环境.
+\item 这是一个不计数列表环境.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{左右分栏}  % Multiple Columns
+\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 
 \column{.45\textwidth} % Left column and width
 \textbf{Heading}
@@ -193,43 +212,43 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 \end{enumerate}
 
 \column{.5\textwidth} % Right column and width
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{columns}
 \end{frame}
 
 %------------------------------------------------
-\section{第二节}
+\section{定理与表格}
 %------------------------------------------------
-\subsection{第二节第一小节}
+
 \begin{frame}
-\frametitle{表格和引理}
-\begin{table}
-\caption{Table caption}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\end{table}
-\begin{lmm}
-  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
-  \begin{equation}
-    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
-  \end{equation}
-\end{lmm}
+\frametitle{定理环境}
+\begin{definition} \upshape
+This is a definition environment. 这是一个定义环境.
+\end{definition}
+
+
+\begin{lemma} \upshape
+This is a lemma environment. 这是一个引理环境.
+\end{lemma}
+
+\begin{proposition} \upshape
+This is a proposition environment. 这是一个命题环境.
+\end{proposition}
+
+
+\begin{theorem}[Mass--energy] \upshape
+This is a theorem environment. 这是一个定理环境.
+\end{theorem}
+
 \end{frame}
 
 %------------------------------------------------
 
-\begin{frame}
-\frametitle{定理}
 
-\begin{thm}[Lax-Milgram Lemma]
+\begin{frame}
+\frametitle{定理示例}
+
+\begin{lemma}[Lax-Milgram Lemma] \upshape
 Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
 \begin{equation}
   \alert{
@@ -243,17 +262,15 @@ has a unique solution. Moreover, we have
 \begin{equation}
   \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
 \end{equation}
-\end{thm}
+\end{lemma}
 
 \end{frame}
 
-
-\subsection{第二节第二小节}
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{exam}[Theorem Slide Code]
+\begin{example}[Theorem Slide Code]
 \begin{verbatim}
 \begin{frame}
 \frametitle{Theorem}
@@ -261,35 +278,50 @@ has a unique solution. Moreover, we have
 $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
-\end{exam}
+\end{example}
 
-\begin{thm}[Mass--energy 等价]
-$E = mc^2$
-\end{thm}
+\begin{table}
+\caption{这是一个三线表.}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \end{frame}
+
 
 %------------------------------------------------
 
-
-
+\section{插图环境}
 
 \begin{frame}
-\frametitle{Figure}
+\frametitle{插图环境}
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-\begin{figure}
-\includegraphics[width=0.8\linewidth]{Image.eps}
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=0.5\linewidth]{image}
+\caption{Caption of Figure 1.} \label{fig:A}
 \end{figure}
 \end{frame}
 
+
+%------------------------------------------------
+\section{参考文献}
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Citation}
 An example of the \verb|\cite| command to cite within the presentation:\\~
 
-This statement requires citation \cite{p1}.
+This statement requires citation \cite{Smith2012}. \\~
+
+文献引用示例 \cite{LiLiu1997}, 可以修改引用文献样式.
 \end{frame}
 
 %------------------------------------------------
@@ -298,12 +330,12 @@ This statement requires citation \cite{p1}.
 \frametitle{References}
 \footnotesize{
 \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{p1} John Smith (2012)
-\newblock Title of the publication
-\newblock \emph{Journal Name} 12(3), 45 -- 678.
+\bibitem[Smith, 2012]{Smith2012} John Smith, Title of the publication, \emph{Journal Name}, 12(3):45--678, 2012.
+\bibitem[李荣华, 1997]{LiLiu1997} 李荣华, 刘播. 微分方程数值解法. 东南大学出版社, 1997.
 \end{thebibliography}
 }
 \end{frame}
+
 
 %------------------------------------------------
 %\thispagestyle{empty}

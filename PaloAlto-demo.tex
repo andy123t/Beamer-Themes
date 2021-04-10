@@ -1,34 +1,38 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beamer Presentation
-% LaTeX Template
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
 
-\documentclass[notheorems,compress]{beamer}
+\documentclass[notheorems,11pt,xcolor=table]{beamer}
+%\documentclass[11pt,no-math,xcolor=table,aspectratio=169]{beamer}
 
-\mode<presentation> {
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm] %,handout
 
-%\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
-\setbeamertemplate{blocks}[rounded][shadow=true]
-%\usetheme{CambridgeUS}
-%\usetheme{Madrid}
-\usetheme{Singapore}
-%\usetheme{Warsaw}
+\usefonttheme[onlymath]{serif}    % 有衬线字体
 
-%\usecolortheme{lily}
-%\usecolortheme{seahorse}
-\setbeamercovered{transparent}
-\usefonttheme[onlymath]{serif}
+\usetheme{PaloAlto}
+%\usecolortheme{crane}
+\setbeamertemplate{navigation symbols}{}
 
-%\setbeamertemplate{headline}{}  %
-%\usetheme{boxes}
-%\setbeamertemplate{footline}{}  % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\definecolor{bgcolor}{RGB}{128,128,255}
+\setbeamercolor{frametitle}{fg=black,bg=bgcolor}
+\setbeamercolor{sidebar}{bg=bgcolor}
 
-\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols
+%\usefonttheme{professionalfonts}
+%\setbeamerfont{normal text}{family=\songti}
+%\setbeamerfont{frametitle}{family=\large\bfseries}
+%\setbeamerfont{title}{family=\bfseries}
+%\setbeamerfont{subtitle}{family=\kaishu}
 
-}
+\makeatletter
+\beamer@headheight=2\baselineskip     %controls the height of the headline, default is 2.5
+\makeatother
+
+\definecolor{bgtop}{RGB}{211,211,239}
+\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=bgtop]
+
+
+%\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+%\usepackage[noindent,UTF8]{ctexcap}
+\usepackage{xcolor}
+%\usepackage[T1]{fontenc}
 
 
 \usepackage{amsmath}
@@ -40,12 +44,12 @@
 \usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
 \usepackage{epstopdf}
 \usepackage{url,hyperref}
+%\usepackage{newtxtext}
 
 \usepackage{color,xcolor}
 \usepackage{cases}
 \usepackage{mathtools}
 %\usepackage[UTF8,noindent]{ctex}
-
 
 \setbeamertemplate{theorems}[numbered]
 \newtheorem{theorem}{Theorem}
@@ -64,16 +68,15 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
+
+\usepackage{tikz}
+
+
+
+
 \bibliographystyle{apalike}
 
-\AtBeginSection[]
-{ \begin{frame}
-    \frametitle{Overview}
-    \tableofcontents[currentsection,hideallsubsections]
-  \end{frame}
-  \addtocounter{framenumber}{-1}  %目录页不计算页码
-}
-
+\logo{\includegraphics[height=1cm]{logo.pdf}}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -93,14 +96,18 @@ Name of University \\ % Your institution for the title page
 
 \graphicspath{{./Figures/}}
 
+
 \begin{document}
 
+%\begin{frame}{目录}
+%\tableofcontents[pausesections]
+%\end{frame}
+
 %\thispagestyle{empty}
-%{\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}
-%}
+
 
 \begin{frame}
 \frametitle{Overview} % Table of contents slide, comment this block out to remove it
@@ -259,11 +266,8 @@ This statement requires citation \cite{Smith2012}.
 }
 \end{frame}
 
-
 %------------------------------------------------
-%\thispagestyle{empty}
-\setbeamertemplate{headline}{}
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+
 \begin{frame}
 \Huge{\centerline{The End}}
 \end{frame}
@@ -280,5 +284,8 @@ This statement requires citation \cite{Smith2012}.
 %\end{frame}
 
 
+%\begin{frame}{参考文献}
+%\nocite{Shiye}
+%\bibliography{math}
+%\end{frame}
 \end{document}
-

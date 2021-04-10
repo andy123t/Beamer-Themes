@@ -5,7 +5,7 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-\documentclass[compress]{beamer}
+\documentclass[notheorems,compress]{beamer}
 
 \mode<presentation> {
 
@@ -18,7 +18,7 @@
 
 %\usecolortheme{lily}
 %\usecolortheme{seahorse}
-\setbeamertemplate{theorems}[numbered]
+
 \setbeamercovered{transparent}
 \usefonttheme[onlymath]{serif}
 
@@ -48,16 +48,16 @@
 %\usepackage[UTF8,noindent]{ctex}
 
 \setbeamertemplate{theorems}[numbered]
-\newtheorem{thm}{Theorem}
-\numberwithin{thm}{section}
-\newtheorem{defn}{Definition}
-\numberwithin{defn}{section}
-\newtheorem{lmm}{Lemma}
-\numberwithin{lmm}{section}
-\newtheorem{pro}{Proof}
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{section}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{section}
+%\newtheorem{pro}{Proof}
 \theoremstyle{example}
-\newtheorem{exam}{Example}
-%\numberwithin{exam}{section}
+\newtheorem{example}{Example}
+%\numberwithin{example}{section}
 
 
 \setbeamertemplate{caption}[numbered]
@@ -94,13 +94,13 @@
 \title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{John Smith} % Your name
-\institute[UCLA] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+\institute[NU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
-University of California \\ % Your institution for the title page
+Name of University \\ % Your institution for the title page
 \medskip
-\textit{john@smith.com} % Your email address
+\textit{name@email.com} % Your email address
 }
-\date{\today} % Date, can be changed to a custom date
+\date[2020.6.23]{Jun 23, 2020} % Date, can be changed to a custom date
 
 
 \graphicspath{{./Figures/}}
@@ -131,21 +131,27 @@ University of California \\ % Your institution for the title page
 
 \begin{frame}
 \frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+This is paragraphs of text. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. \\~\\
 
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Bullet Points}
+\frametitle{Lists}
+
+\begin{enumerate}
+  \item This is a enumerate environment.
+  \item This is a enumerate environment.
+  \item This is a enumerate environment.
+\end{enumerate}
+
+\vspace{2ex}
 \begin{itemize}[<+-| alert@+>]
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\item This is a itemize environment.
+\item This is a itemize environment.
+\item This is a itemize environment.
 \end{itemize}
 \end{frame}
 
@@ -153,16 +159,16 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 
 \begin{frame}
 \frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+\begin{block}{Block Title}
+This is the block environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{block}
 
-\begin{exampleblock}{Block 2}
-Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+\begin{exampleblock}{Block Title}
+This is the exampleblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{exampleblock}
 
-\begin{alertblock}{Block 3}
-Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
+\begin{alertblock}{Block Title}
+This is the alertblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
 \end{alertblock}
 \end{frame}
 
@@ -172,16 +178,18 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 \frametitle{Multiple Columns}
 \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
 
-\column{.45\textwidth} % Left column and width
-\textbf{Heading}
-\begin{enumerate}
-\item Statement
-\item Explanation
-\item Example
-\end{enumerate}
+\column{0.5\textwidth}
+This is a text in first column.
+$$E=mc^2$$
+\begin{itemize}
+\item First item
+\item Second item
+\end{itemize}
 
-\column{.5\textwidth} % Right column and width
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+\column{0.5\textwidth}
+This text will be in the second column
+and on a second tought this is a nice looking
+layout in some cases.
 
 \end{columns}
 \end{frame}
@@ -205,43 +213,18 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \end{tabular}
 \end{table}
 
-\begin{lmm}
-  For any $v \in H_{A}^{r}(\Lambda)$ and $r \geq 0$,
-  \begin{equation}
-    \|P_{N} v-v\| \leq c N^{-r}\|v\|_{r, A}.
-  \end{equation}
-\end{lmm}
+\begin{lemma}
+This is a lemma environment.
+\end{lemma}
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{Theorem}
-
-\begin{thm}[Lax-Milgram Lemma]
-Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
-\begin{equation}
-  \alert{
-  \left\{\begin{aligned}
-  &\text {Find } u \in X \text { such that } \\
-  &a(u, v)=F(v), \forall v \in X
-  \end{aligned} \right. }
-\end{equation}
-has a unique solution. Moreover, we have
-
-\begin{equation}
-  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
-\end{equation}
-\end{thm}
-
-\end{frame}
 
 %------------------------------------------------
 
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{exam}[Theorem Slide Code]
+\begin{example}[Theorem Slide Code]
 \begin{verbatim}
 \begin{frame}
 \frametitle{Theorem}
@@ -249,11 +232,11 @@ has a unique solution. Moreover, we have
 $E = mc^2$
 \end{theorem}
 \end{frame}\end{verbatim}
-\end{exam}
+\end{example}
 
-\begin{thm}[Mass--energy equivalence]
+\begin{theorem}[Mass--energy equivalence]
 $E = mc^2$
-\end{thm}
+\end{theorem}
 \end{frame}
 
 %------------------------------------------------
@@ -262,8 +245,9 @@ $E = mc^2$
 \frametitle{Figure}
 
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{Image.eps}
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=0.6\linewidth]{Image.eps}
 \end{figure}
 \end{frame}
 
@@ -273,7 +257,7 @@ Uncomment the code on this slide to include your own image from the same directo
 \frametitle{Citation}
 An example of the \verb|\cite| command to cite within the presentation:\\~
 
-This statement requires citation \cite{p1}.
+This statement requires citation \cite{Smith2012}.
 \end{frame}
 
 %------------------------------------------------
@@ -282,9 +266,7 @@ This statement requires citation \cite{p1}.
 \frametitle{References}
 \footnotesize{
 \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{p1} John Smith (2012)
-\newblock Title of the publication
-\newblock \emph{Journal Name} 12(3), 45 -- 678.
+\bibitem[Smith, 2012]{Smith2012} John Smith. Title of the publication. \emph{Journal Name}, 12(3):45--678, 2012.
 \end{thebibliography}
 }
 \end{frame}

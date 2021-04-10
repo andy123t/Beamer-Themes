@@ -1,34 +1,32 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beamer Presentation
-% LaTeX Template
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
 
-\documentclass[notheorems,compress]{beamer}
+\documentclass[notheorems]{beamer}
 
-\mode<presentation> {
+\makeatletter
+\renewcommand \theequation {%
+	\ifnum \c@section>\z@ \@arabic\c@section.\fi \ifnum \c@subsection>\z@
+	\@arabic\c@subsection.\fi\ifnum \c@subsubsection>\z@
+	\@arabic\c@subsubsection.\fi\@arabic\c@equation}
+\@addtoreset{equation}{section}
+\@addtoreset{equation}{subsection}
+\setcounter{section}{-1}
+\makeatother
 
-%\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
-\setbeamertemplate{blocks}[rounded][shadow=true]
-%\usetheme{CambridgeUS}
-%\usetheme{Madrid}
-\usetheme{Singapore}
-%\usetheme{Warsaw}
+\allowdisplaybreaks
 
+%\usepackage[dvipsnames,table,xcdraw]{xcolor}
+%\usepackage{beamerarticle}
+%\usetheme{Berlin}
+\usetheme{Boadilla}
+%usetheme{Feather}
+%\usetheme{Hannover}
+\useoutertheme[height=1.5cm]{sidebar}
+%\usecolortheme{spruce}
 %\usecolortheme{lily}
-%\usecolortheme{seahorse}
-\setbeamercovered{transparent}
-\usefonttheme[onlymath]{serif}
 
-%\setbeamertemplate{headline}{}  %
-%\usetheme{boxes}
-%\setbeamertemplate{footline}{}  % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
-
-\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols
-
-}
+\usecolortheme{rose}
+\usecolortheme{seahorse}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
 
 
 \usepackage{amsmath}
@@ -38,14 +36,17 @@
 \usepackage[english]{babel}  % Show english numerate
 \usepackage{epsfig,amssymb,amsmath,version}
 \usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
+\usepackage{caption}
 \usepackage{epstopdf}
 \usepackage{url,hyperref}
+%\usepackage{newtxtext}
 
 \usepackage{color,xcolor}
 \usepackage{cases}
 \usepackage{mathtools}
 %\usepackage[UTF8,noindent]{ctex}
 
+%\setmainfont{KaiTi}
 
 \setbeamertemplate{theorems}[numbered]
 \newtheorem{theorem}{Theorem}
@@ -58,22 +59,25 @@
 \newtheorem{example}{Example}
 %\numberwithin{example}{section}
 
-
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\bibliographystyle{apalike}
 
-\AtBeginSection[]
-{ \begin{frame}
-    \frametitle{Overview}
-    \tableofcontents[currentsection,hideallsubsections]
-  \end{frame}
-  \addtocounter{framenumber}{-1}  %目录页不计算页码
+\usepackage{tikz}
+\AtBeginSection[]{
+	\begin{frame}{OUTLINE}
+	\tableofcontents[currentsection]
+\end{frame}
 }
 
+\AtBeginSubsection[]{
+\begin{frame}{Outline}
+\tableofcontents[currentsection,currentsubsection]
+\end{frame}
+}
+%\setlength{\parindent}{2em}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -91,20 +95,19 @@ Name of University \\ % Your institution for the title page
 \date[2020.6.23]{Jun 23, 2020} % Date, can be changed to a custom date
 
 
+\logo{\includegraphics[height=1.5cm]{logo.pdf}}
+
+
 \graphicspath{{./Figures/}}
-
 \begin{document}
-
-%\thispagestyle{empty}
-%{\setbeamertemplate{headline}{}
-\begin{frame}
-\titlepage % Print the title page as the first slide
+%\songti
+\begin{frame}%[label=fp]{topic}
+\titlepage
 \end{frame}
-%}
 
-\begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
-\tableofcontents[hideallsubsections] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\section*{Outline}
+\begin{frame}{Outline}
+\tableofcontents
 \end{frame}
 
 %----------------------------------------------------------------------------------------
@@ -248,37 +251,13 @@ An example of the \verb|\cite| command to cite within the presentation:\\~
 This statement requires citation \cite{Smith2012}.
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{References}
-\footnotesize{
-\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{Smith2012} John Smith. Title of the publication. \emph{Journal Name}, 12(3):45--678, 2012.
-\end{thebibliography}
-}
-\end{frame}
 
 
 %------------------------------------------------
 %\thispagestyle{empty}
-\setbeamertemplate{headline}{}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 \begin{frame}
 \Huge{\centerline{The End}}
 \end{frame}
 
-%----------------------------------------------------------------------------------------
-
-%\thispagestyle{empty}
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\setbeamertemplate{footline}{}
-%\begin{frame}
-%\begin{center}
-%\Huge \emph{\textcolor[RGB]{128,0,255}{Thanks for your attention!}}
-%\end{center}
-%\end{frame}
-
-
-\end{document}
-
+\end{document} 
