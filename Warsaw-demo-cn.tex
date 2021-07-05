@@ -1,58 +1,47 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beamer Presentation
-% LaTeX Template
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%======================================================%
+%   Beamer Presentation
+%   LaTeX Template
+%   compile using PDFTeXify or PDFLaTeX
+%======================================================%
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%--------------------------------------------------------------------------------
 
-%\documentclass[notheorems,compress]{beamer}
+%\documentclass[notheorems,11pt,compress]{beamer}
 \documentclass[notheorems]{beamer}
 
-\mode<presentation> {
+\mode<presentation>{
 
-% The Beamer class comes with a number of default slide themes
-% which change the colors and layouts of slides. Below this is a list
-% of all the themes, uncomment each in turn to see what they look like.
+%------- Beamer theme ------
+\usetheme{Warsaw}
+%\usetheme{Madrid}
+%\usetheme{Boadilla}
+%\usetheme{Frankfurt}
+%\usetheme{CambridgeUS}
+%\usetheme{Montpellier}
+
+%------- Color theme ------
+%\usecolortheme{rose}
+%\usecolortheme{orchid}
+%\usecolortheme{lily}
+%\usecolortheme{whale}
+%\usecolortheme{dolphin}
+%\usecolortheme{seahorse}
 
 \setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
-\setbeamertemplate{blocks}[rounded][shadow=true]
-
-%\usetheme{default}
-%\usetheme{CambridgeUS}
-%\usetheme{Madrid}
-%\usetheme{Singapore}
-\usetheme{Warsaw}
-
-
-\setbeamertemplate{theorems}[numbered]
-%\setbeamercovered{transparent}
 \usefonttheme[onlymath]{serif}
+%\usefonttheme{serif}
+%\setbeamercovered{transparent}
 %\usetheme{boxes}
-%\setbeamertemplate{footline}{} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number]
+
+%\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{navigation symbols}{}
-}
-
-
-%\usepackage{amsmath}
-%\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-
-\usepackage[UTF8,noindent]{ctex}
-\usepackage[english]{babel} %show english numerate
-\usepackage{amsmath,amssymb,version}
-\usepackage{graphicx,fancybox,mathrsfs,multirow}
-\usepackage{booktabs}
-\usepackage{epsfig,epstopdf}
-\usepackage{url,hyperref}
-\usepackage{tabularx,array,makecell}
-\usepackage{color,xcolor}
-\usepackage{cases}
-\usepackage{mathtools}
-\usepackage{zhlipsum}
-
+%\setbeamertemplate{itemize items}[square]  % ball, circle
+%\setbeamertemplate{enumerate items}[square]
+%\setbeamertemplate{section in toc}[square]
 
 \setbeamertemplate{footline}%{shadow theme}
 {%
@@ -66,68 +55,115 @@
   \vskip0pt%
 }
 
-%---------- 定理设置  --------------
+}
+
+%----------- 宏包 -------------
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+
+\usepackage[UTF8,noindent]{ctex}
+%\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
+\usepackage{url,hyperref}
+\usepackage{tabularx,array,makecell}
+\usepackage{color,xcolor}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+
+%---------- 定义表格命令 ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{>{\quad}X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedright \arraybackslash}X}
+
+
+%---------- 设置字体 ----------
+\setbeamerfont{normal text}{family=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+%---------- 设置定理环境  --------------
+\theoremstyle{plain}
 \setbeamertemplate{theorems}[numbered]
+%\theoremstyle{definition}
 %\newtheorem{theorem}{Theorem}
-\newtheorem{theorem}{定理}
+\newtheorem{theorem}{\sffamily 定理}
 \numberwithin{theorem}{section}
 %\newtheorem{definition}{Definition}
-\newtheorem{definition}{定义}
+\newtheorem{definition}{\sffamily 定义}
 \numberwithin{definition}{section}
 %\newtheorem{lemma}{Lemma}
-\newtheorem{lemma}{引理}
+\newtheorem{lemma}{\sffamily 引理}
 \numberwithin{lemma}{section}
 %\newtheorem{proposition}{Proposition}
-\newtheorem{proposition}{命题}
+\newtheorem{proposition}{\sffamily 命题}
 \numberwithin{proposition}{section}
 %\newtheorem{corollary}{Corollary}
-\newtheorem{corollary}{引理}
+\newtheorem{corollary}{\sffamily 推论}
 \numberwithin{corollary}{section}
 \theoremstyle{example}
 %\newtheorem{example}{Example}
-\newtheorem{example}{例}
+\newtheorem{example}{\bfseries 例}
 %\numberwithin{example}{section}
-\renewcommand{\proofname}{\heiti 证明}
+\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
 
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-%\setbeamerfont{normal text}{family=\songti}
-%\setbeamerfont{frametitle}{family=\large\bfseries}
-%\setbeamerfont{title}{family=\bfseries}
-%\setbeamerfont{subtitle}{family=\kaishu}
+
+%---------- 设置字体  ---------------
+\setbeamerfont{normal text}{family=\rmfamily}
+%\setbeamerfont{frametitle}{family=\sffamily}
+%\setbeamerfont{title}{family=\sffamily}
+%%\setbeamerfont{subtitle}{family=\sffamily}
+%\setbeamerfont{institute}{family=\rmfamily}
+%\setbeamerfont{author}{family=\rmfamily}
+%\setbeamerfont{date}{family=\rmfamily}
+%\setbeamerfont{headline}{family=\sffamily}
+%\setbeamerfont{footline}{family=\rmfamily}
+%\setbeamerfont{section in toc}{family=\rmfamily}
+%\setbeamerfont{subsection in toc}{family=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
 
 
 
-%\AtBeginSection[]
-%{ \begin{frame}
-%    \frametitle{目录}
-%    \tableofcontents[currentsection,currentsubsection]
-%  \end{frame}
-%  \addtocounter{framenumber}{-1}  %目录页不计算页码
+%---------- 定义行距 ----------
+%\renewcommand{\baselinestretch}{1.0}
+
+%---------- 调节公式的间距 ----------
+%\AtBeginDocument{
+%	\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+%	\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
+%	\setlength{\abovedisplayshortskip}{2pt}
+%	\setlength{\belowdisplayshortskip}{2pt}
+%	\setlength{\arraycolsep}{2pt}
 %}
 
-\AtBeginSection[]
-{ \begin{frame}
-    \frametitle{目录}
-    \tableofcontents[currentsection,currentsubsection] %hideallsubsections
-  \end{frame}
-  \addtocounter{framenumber}{-1}  %目录页不计算页码
-}
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
+\makeatother
 
-%\AtBeginSubsection[]
-%{
-%	\begin{frame}%[shrink]
-%    \frametitle{目录}
-%	%\thispagestyle{empty}
-%	\addtocounter{framenumber}{-1}
-%	\tableofcontents[
-%	sectionstyle=show/shaded,
-%	subsectionstyle=show/shaded/hide]
+%---------- 自定义命令 ----------
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
+%\AtBeginSection[]{
+%\begin{frame}
+%  \frametitle{目录}
+%  \tableofcontents[currentsection,currentsubsection]
+%  %\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/shaded]
+%  \addtocounter{framenumber}{-1}
 %\end{frame}
 %}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -143,19 +179,18 @@ Name of University \\ % 机构全称
 }
 \date[2020.6.23]{2020~年~6~月~23~日} % 日期
 
-\graphicspath{{./Figures/}}
+
+\graphicspath{{./figures/}}
 
 \begin{document}
-\songti
 
-%\thispagestyle{empty}
 \begin{frame}
-\titlepage % Print the title page as the first slide
+\titlepage
 \end{frame}
 
 \begin{frame}
-\frametitle{目录} % Table of contents slide, comment this block out to remove it
-\tableofcontents %[hideallsubsections] % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\frametitle{目录}
+\tableofcontents%[hideallsubsections]
 \end{frame}
 
 %----------------------------------------------------------------------------------------
@@ -241,23 +276,26 @@ The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the 
 
 \begin{frame}
 \frametitle{定理环境}
-\begin{definition} \upshape
+\begin{definition} \upshape\rmfamily
 This is a definition environment. 这是一个定义环境.
 \end{definition}
 
 
-\begin{lemma} \upshape
+\begin{lemma} \upshape\rmfamily
 This is a lemma environment. 这是一个引理环境.
 \end{lemma}
 
-\begin{proposition} \upshape
+\begin{proposition} \upshape\rmfamily
 This is a proposition environment. 这是一个命题环境.
 \end{proposition}
 
-
-\begin{theorem}[Mass--energy] \upshape
+\begin{theorem}[Mass--energy] \upshape\rmfamily
 This is a theorem environment. 这是一个定理环境.
 \end{theorem}
+
+\begin{proof}
+  This is a proof environment. 这是一个证明环境.
+\end{proof}
 
 \end{frame}
 
@@ -267,7 +305,7 @@ This is a theorem environment. 这是一个定理环境.
 \begin{frame}
 \frametitle{定理示例}
 
-\begin{lemma}[Lax-Milgram Lemma] \upshape
+\begin{theorem}[Lax-Milgram Lemma] \upshape
 Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
 \begin{equation}
   \alert{
@@ -277,11 +315,10 @@ Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mat
   \end{aligned} \right. }
 \end{equation}
 has a unique solution. Moreover, we have
-
 \begin{equation}
   \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
 \end{equation}
-\end{lemma}
+\end{theorem}
 
 \end{frame}
 
@@ -316,6 +353,62 @@ Treatment 2 & 0.0015681 & 0.910 \\
 
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{表格环境}
+本文定义了新的可变长度左中右 (LCR) 格式, LCR 三个格式会根据表格宽度的设定自行控制宽度, 且其宽度相等, 方便设置和页面相同宽度的表格. 本文还定义了 P\{\} 格式可以设定某一列宽度 (如 P\{1cm\} 控制某一列的宽度为 1cm) 并居中.
+\begin{table}[!htp]
+\centering
+% PLCR已经定义
+\caption{某校学生身高体重样本.}
+\label{tab2:heightweight}
+\begin{tabularx}{0.9\textwidth}{lCCC}
+   \toprule
+	序号&年龄&身高&体重\\
+	\midrule
+	1&14&156&42\\
+	2&16&158&45\\
+	3&14&162&48\\
+	4&15&163&50\\
+    \cmidrule{2-4}
+	平均&15&159.75&46.25\\
+	\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{表格示例}
+\begin{table}[htp!]
+\centering
+\renewcommand\arraystretch{1.0} %定义表格高度
+% PLCR前面已经定义
+\caption{表格的描述.}
+\label{tab3:NumError}
+\begin{tabularx}{0.9\textwidth}{|P{1cm}|C|C|C|C|}
+\Xhline{2\arrayrulewidth}
+N  & A       & B    & C  & D   \\
+\Xhline{2\arrayrulewidth}
+1  & 9.20E-05 & 9.90E-05 & 1.00E-06 & 8.00E-06  \\
+2  & 9.80E-05 & 8.00E-05 & 7.00E-06 & 1.40E-05  \\
+3  & 4.00E-06 & 8.10E-05 & 8.80E-05 & 2.00E-05 \\
+4  & 8.50E-05 & 8.70E-05 & 1.90E-05 & 2.10E-05 \\
+5 & 8.60E-05 & 9.30E-05 & 2.50E-05 & 2.00E-06  \\
+6 & 1.70E-05 & 2.40E-05 & 7.60E-05 & 8.30E-05  \\
+7 & 2.30E-05 & 5.00E-06 & 8.20E-05 & 8.90E-05 \\
+8 & 7.90E-05 & 6.00E-06 & 1.30E-05 & 9.50E-05  \\
+9 & 1.00E-05 & 1.20E-05 & 9.40E-05 & 9.60E-05 \\
+\Xhline{2\arrayrulewidth}
+\end{tabularx}
+\end{table}
+
+\end{frame}
+
+%------------------------------------------------
+
 \section{插图环境}
 
 \begin{frame}
@@ -324,11 +417,29 @@ Treatment 2 & 0.0015681 & 0.910 \\
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}[htp!]
 \centering
-\includegraphics[width=0.5\linewidth]{image}
+\includegraphics[width=0.5\linewidth]{image1}
 \caption{Caption of Figure 1.} \label{fig:A}
 \end{figure}
 \end{frame}
 
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{两图并排}
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image1}
+\caption{Caption of Figure 1.}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image2}
+\caption{Caption of Figure 2.}
+\end{minipage}
+\end{figure}
+\end{frame}
 
 %------------------------------------------------
 \section{参考文献}
@@ -355,16 +466,17 @@ This statement requires citation \cite{Smith2012}. \\~
 }
 \end{frame}
 
+
 %------------------------------------------------
-\thispagestyle{empty}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\setbeamertemplate{footline}{}
 %\setbeamertemplate{headline}{}
-\begin{frame}{}
-\Huge{\centerline{The End}}
+\begin{frame}
+\sffamily
+\begin{center}
+\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
+\end{center}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
 
 \end{document}
-

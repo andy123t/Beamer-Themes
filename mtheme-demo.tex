@@ -1,9 +1,8 @@
-\documentclass[11pt]{beamer}
+\documentclass[notheorems,11pt]{beamer}
 
 \usetheme{metropolis}
 \usepackage{appendixnumberbeamer}
 
-\usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
 \usepackage{pgfplots}
@@ -14,38 +13,75 @@
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
 \usefonttheme[onlymath]{serif}
-\usepackage{amsmath,amsthm}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-%\newtheorem{lemma}[theorem]{Lemma}
 
+%----------- Packages -------------
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
 
-
-%\usepackage[english]{babel}  % Show english numerate
-%\usepackage{epsfig,amssymb,amsmath,version}
-%\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
-\usepackage{epstopdf}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
 \usepackage{url,hyperref}
-%
-%\usepackage{newtxtext}
+\usepackage{tabularx,array,makecell}
 \usepackage{color,xcolor}
-%\usepackage{cases}
-%\usepackage{mathtools}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{tikz}
 
-%\setbeamerfont{normal text}{family=\songti}
-%\setbeamerfont{frametitle}{family=\large\bfseries}
-%\setbeamerfont{title}{family=\bfseries}
-%\setbeamerfont{subtitle}{family=\kaishu}
-%\setbeamerfont{institute}{size=\small}
+%\setbeamerfont{normal text}{family=\rmfamily}
+%\setbeamerfont{frametitle}{family=\sffamily}
+%\setbeamerfont{title}{family=\sffamily}
+%%\setbeamerfont{subtitle}{family=\sffamily}
+%\setbeamerfont{institute}{family=\rmfamily}
+%\setbeamerfont{author}{family=\rmfamily}
+%\setbeamerfont{date}{family=\rmfamily}
+%\setbeamerfont{headline}{family=\sffamily}
+%\setbeamerfont{footline}{family=\rmfamily}
+%\setbeamerfont{section in toc}{family=\rmfamily}
+%\setbeamerfont{subsection in toc}{family=\rmfamily}
+%\AtBeginDocument{\usebeamerfont{normal text}}
+
 \definecolor{iron}{RGB}{0,82,67}
 \setbeamercolor{frametitle}{bg=iron}
 %\setbeamercolor{progress bar}{fg=iron,bg=iron}
+
+%---------- Theorem environment ----------
+\setbeamertemplate{theorems}[nonumbered] %numbered
+\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{section}
+\newtheorem{definition}{Definition}
+%\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+%\numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+%\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+%\numberwithin{corollary}{section}
+\theoremstyle{example}
+\newtheorem{example}{Example}
+%\numberwithin{example}{section}
+\renewenvironment{proof}[1][Proof]{\textit{#1}:~}{\qed\par}
+
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
 
 %\title{Metropolis}
 %\subtitle{A modern beamer theme}
 %\date{\today}
 %\author{Matthias Vogelgesang}
 %\institute{Center for modern beamer themes}
+
+%---------- Define new table commands ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{>{\quad}X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedright \arraybackslash}X}
+
 
 \title[Short title]{Full Title of the Talk}
 \subtitle{A modern beamer theme}
@@ -57,7 +93,7 @@
 \date{\today} % Date, can be changed to a custom date
 
 
-\graphicspath{{./Figures/}}
+\graphicspath{{./figures/}}
 
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
 
@@ -75,6 +111,9 @@
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%--------------------------------------------------------------------------------
 
 %------------------------------------------------
 \section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
@@ -152,7 +191,41 @@ layout in some cases.
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Table and Lemma}
+\frametitle{Theorem}
+
+\begin{definition}
+This is a definition environment.
+\end{definition}
+
+
+\begin{lemma}
+This is a lemma environment.
+\end{lemma}
+
+\begin{proposition}
+This is a proposition environment.
+\end{proposition}
+
+\begin{theorem}[Mass--energy]
+This is a theorem environment.
+\end{theorem}
+
+\begin{proof}
+  This is a proof environment.
+\end{proof}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Formula and Table}
+
+This is Pythagorean's theorem
+\begin{equation}\label{Pythagorean}
+  a^2+b^2=c^2.
+\end{equation}
+
+This is a simple three-line table.
 \begin{table}
 \caption{Table caption}
 \begin{tabular}{l l l}
@@ -166,14 +239,36 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \end{tabular}
 \end{table}
 
-\begin{lemma}
-This is a lemma environment.
-\end{lemma}
 \end{frame}
-
 
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{}
+The new command PLCR is defined to set the length of the width of the table. They can be used in the tabularx environment.
+
+\begin{table}[!htp]
+\centering
+\renewcommand\arraystretch{1.05}
+\caption{A sample of the height and weight of students.}
+\label{tab2:heightweight}
+% PLCR is defined in the preamble
+\begin{tabularx}{0.8\textwidth}{lCCC}
+   \toprule %\Xhline{2\arrayrulewidth}
+	Number &  Age & Height & Weight\\
+	\midrule
+	1&14&156&42\\
+	2&16&158&45\\
+	3&14&162&48\\
+	4&15&163&50\\
+    \cmidrule{2-4}
+	Mean &15&159.75&46.25\\
+	\bottomrule
+\end{tabularx}
+\end{table}
+\end{frame}
+
+%------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
@@ -200,10 +295,31 @@ $E = mc^2$
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}[htp!]
 \centering
-\includegraphics[width=0.6\linewidth]{Image.eps}
+\includegraphics[width=0.6\linewidth]{image1.eps}
 \end{figure}
 \end{frame}
 
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Two pictures}
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image1}
+\caption{Caption of Figure 1.}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image2}
+\caption{Caption of Figure 2.}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+\section{Third Section}
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
@@ -224,8 +340,7 @@ This statement requires citation \cite{Smith2012}.
 }
 \end{frame}
 
-
-
+%------------------------------------------------
 
 \begin{frame}[standout]
   \Huge Thank you!

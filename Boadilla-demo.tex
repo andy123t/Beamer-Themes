@@ -1,53 +1,81 @@
+%======================================================%
+%   Beamer Presentation
+%   LaTeX Template
+%   compile using PDFTeXify or PDFLaTeX
+%======================================================%
 
-\documentclass[notheorems]{beamer}
+%--------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%--------------------------------------------------------------------------------
 
-\makeatletter
-\renewcommand \theequation {%
-	\ifnum \c@section>\z@ \@arabic\c@section.\fi \ifnum \c@subsection>\z@
-	\@arabic\c@subsection.\fi\ifnum \c@subsubsection>\z@
-	\@arabic\c@subsubsection.\fi\@arabic\c@equation}
-\@addtoreset{equation}{section}
-\@addtoreset{equation}{subsection}
-\setcounter{section}{-1}
-\makeatother
+\documentclass[notheorems,11pt,compress]{beamer}
+
+%\makeatletter
+%\renewcommand \theequation {%
+%	\ifnum \c@section>\z@ \@arabic\c@section.\fi \ifnum \c@subsection>\z@
+%	\@arabic\c@subsection.\fi\ifnum \c@subsubsection>\z@
+%	\@arabic\c@subsubsection.\fi\@arabic\c@equation}
+%\@addtoreset{equation}{section}
+%\@addtoreset{equation}{subsection}
+%\setcounter{section}{-1}
+%\makeatother
 
 \allowdisplaybreaks
 
 %\usepackage[dvipsnames,table,xcdraw]{xcolor}
 %\usepackage{beamerarticle}
-%\usetheme{Berlin}
+
+%------- Beamer theme ------
 \usetheme{Boadilla}
-%usetheme{Feather}
+%\usetheme{Berlin}
+%\usetheme{Feather}
 %\usetheme{Hannover}
 \useoutertheme[height=1.5cm]{sidebar}
+
+%------- Color theme ------
+\usecolortheme{seahorse}
+%\usecolortheme{rose}
+%\usecolortheme{orchid}
 %\usecolortheme{spruce}
 %\usecolortheme{lily}
 
-\usecolortheme{rose}
-\usecolortheme{seahorse}
 \usefonttheme{professionalfonts}
 \setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{blocks}[rounded][shadow=true]
 
+%----------- Packages -------------
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
 
-\usepackage{amsmath}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-
-\usepackage[english]{babel}  % Show english numerate
-\usepackage{epsfig,amssymb,amsmath,version}
-\usepackage{amssymb,version,graphicx,fancybox,mathrsfs,multirow}
-\usepackage{caption}
-\usepackage{epstopdf}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
 \usepackage{url,hyperref}
-%\usepackage{newtxtext}
-
+\usepackage{tabularx,array,makecell}
 \usepackage{color,xcolor}
 \usepackage{cases}
 \usepackage{mathtools}
-%\usepackage[UTF8,noindent]{ctex}
+\usepackage{tikz}
 
-%\setmainfont{KaiTi}
+%---------- Set line spacing ----------
+\renewcommand{\baselinestretch}{1.15}
 
+%---------- Define new table commands ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{>{\quad}X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedright \arraybackslash}X}
+
+
+%---------- Set fonts ----------
+%\setbeamerfont{normal text}{family=\rmfamily}
+%\AtBeginDocument{\usebeamerfont{normal text}}
+
+
+%---------- Theorem environment ----------
 \setbeamertemplate{theorems}[numbered]
 \newtheorem{theorem}{Theorem}
 \numberwithin{theorem}{section}
@@ -55,9 +83,14 @@
 \numberwithin{definition}{section}
 \newtheorem{lemma}{Lemma}
 \numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{section}
 \theoremstyle{example}
 \newtheorem{example}{Example}
 %\numberwithin{example}{section}
+\renewenvironment{proof}[1][Proof]{\textit{#1}:~}{\qed\par}
 
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
@@ -65,23 +98,35 @@
 \numberwithin{equation}{section}
 
 
-\usepackage{tikz}
+%---------- Adjust the spacing of formulas ----------
+%\AtBeginDocument{
+%	\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+%	\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
+%	\setlength{\abovedisplayshortskip}{2pt}
+%	\setlength{\belowdisplayshortskip}{2pt}
+%	\setlength{\arraycolsep}{2pt}
+%}
+
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
+\makeatother
+
+%---------- Define new commands ----------
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
 \AtBeginSection[]{
 	\begin{frame}{OUTLINE}
-	\tableofcontents[currentsection]
+    \tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/shaded]
+    %\tableofcontents[currentsection,hideallsubsections]
 \end{frame}
 }
 
-\AtBeginSubsection[]{
-\begin{frame}{Outline}
-\tableofcontents[currentsection,currentsubsection]
-\end{frame}
-}
-%\setlength{\parindent}{2em}
 
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
 %	TITLE PAGE
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
 
 \title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
 
@@ -97,22 +142,22 @@ Name of University \\ % Your institution for the title page
 
 \logo{\includegraphics[height=1.5cm]{logo.pdf}}
 
+\graphicspath{{./figures/}}
 
-\graphicspath{{./Figures/}}
 \begin{document}
-%\songti
+
 \begin{frame}%[label=fp]{topic}
 \titlepage
 \end{frame}
 
-\section*{Outline}
-\begin{frame}{Outline}
+\begin{frame}{OUTLINE}
 \tableofcontents
 \end{frame}
 
-%----------------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
 
 %------------------------------------------------
 \section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
@@ -190,7 +235,41 @@ layout in some cases.
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{Table and Lemma}
+\frametitle{Theorem}
+
+\begin{definition}
+This is a definition environment.
+\end{definition}
+
+
+\begin{lemma}
+This is a lemma environment.
+\end{lemma}
+
+\begin{proposition}
+This is a proposition environment.
+\end{proposition}
+
+\begin{theorem}[Mass--energy]
+This is a theorem environment.
+\end{theorem}
+
+\begin{proof}
+  This is a proof environment.
+\end{proof}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Formula and Table}
+
+This is Pythagorean's theorem
+\begin{equation}\label{Pythagorean}
+  a^2+b^2=c^2.
+\end{equation}
+
+This is a simple three-line table.
 \begin{table}
 \caption{Table caption}
 \begin{tabular}{l l l}
@@ -204,14 +283,36 @@ Treatment 3 & 0.0009271 & 0.296 \\
 \end{tabular}
 \end{table}
 
-\begin{lemma}
-This is a lemma environment.
-\end{lemma}
 \end{frame}
-
 
 %------------------------------------------------
 
+\begin{frame}
+\frametitle{}
+The new command PLCR is defined to set the length of the width of the table. They can be used in the tabularx environment.
+
+\begin{table}[!htp]
+\centering
+\renewcommand\arraystretch{1.05}
+\caption{A sample of the height and weight of students.}
+\label{tab2:heightweight}
+% PLCR is defined in the preamble
+\begin{tabularx}{0.8\textwidth}{lCCC}
+   \toprule %\Xhline{2\arrayrulewidth}
+	Number &  Age & Height & Weight\\
+	\midrule
+	1&14&156&42\\
+	2&16&158&45\\
+	3&14&162&48\\
+	4&15&163&50\\
+    \cmidrule{2-4}
+	Mean &15&159.75&46.25\\
+	\bottomrule
+\end{tabularx}
+\end{table}
+\end{frame}
+
+%------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
@@ -238,10 +339,31 @@ $E = mc^2$
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}[htp!]
 \centering
-\includegraphics[width=0.6\linewidth]{Image.eps}
+\includegraphics[width=0.6\linewidth]{image1.eps}
 \end{figure}
 \end{frame}
 
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Two pictures}
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image1}
+\caption{Caption of Figure 1.}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image2}
+\caption{Caption of Figure 2.}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+\section{Third Section}
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
@@ -251,13 +373,35 @@ An example of the \verb|\cite| command to cite within the presentation:\\~
 This statement requires citation \cite{Smith2012}.
 \end{frame}
 
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Smith, 2012]{Smith2012} John Smith. Title of the publication. \emph{Journal Name}, 12(3):45--678, 2012.
+\end{thebibliography}
+}
+\end{frame}
 
 
 %------------------------------------------------
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+%\setbeamertemplate{headline}{}
+\begin{frame}
+\sffamily
+\begin{center}
+\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+
 %\thispagestyle{empty}
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-\begin{frame}
-\Huge{\centerline{The End}}
-\end{frame}
+%\begin{frame}
+%\Huge{\centerline{The End}}
+%\end{frame}
+
 
 \end{document} 
