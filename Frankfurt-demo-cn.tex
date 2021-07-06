@@ -1,0 +1,492 @@
+%======================================================%
+%   Beamer Presentation
+%   LaTeX Template
+%   compile using PDFTeXify or PDFLaTeX
+%======================================================%
+
+%--------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%--------------------------------------------------------------------------------
+
+%\documentclass[notheorems,11pt,compress]{beamer}
+\documentclass[notheorems]{beamer}
+
+\mode<presentation>{
+
+%------- Beamer theme ------
+\usetheme{Frankfurt}
+%\usetheme{Montpellier}
+%\usetheme{Warsaw}
+%\usetheme{CambridgeUS}
+%\usetheme{Boadilla}
+
+%------- Color theme ------
+\usecolortheme{rose}
+%\usecolortheme{orchid}
+%\usecolortheme{lily}
+%\usecolortheme{whale}
+%\usecolortheme{dolphin}
+%\usecolortheme{seahorse}
+
+%\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
+\usefonttheme[onlymath]{serif}
+%\usefonttheme{serif}
+%\setbeamercovered{transparent}
+%\usetheme{boxes}
+
+%\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{itemize items}[square]  % ball, circle
+%\setbeamertemplate{enumerate items}[square]
+%\setbeamertemplate{section in toc}[square]
+
+% change the style of headline
+\setbeamertemplate{headline}{
+\begin{beamercolorbox}[ht=4.5ex]{section in head/foot}
+   \vskip2pt\insertsectionnavigationhorizontal{\textwidth}{}{}\vskip2pt
+   %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+\end{beamercolorbox}
+\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}
+\end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{%
+  \hfill%
+  %\usebeamercolor[fg]{page number in head/foot}%
+  \usebeamercolor[gray]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern1em\vskip2pt%
+}
+
+}
+
+%----------- 宏包 -------------
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+
+\usepackage[UTF8,noindent]{ctex}
+%\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
+\usepackage{url,hyperref}
+\usepackage{tabularx,array,makecell}
+\usepackage{color,xcolor}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+
+%---------- 定义表格命令 ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{>{\quad}X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedright \arraybackslash}X}
+
+
+%---------- 设置字体 ----------
+\setbeamerfont{normal text}{family=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+%---------- 设置 定理环境  --------------
+\theoremstyle{plain}
+\setbeamertemplate{theorems}[numbered]
+%\theoremstyle{definition}
+%\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{\sffamily 定理}
+\numberwithin{theorem}{section}
+%\newtheorem{definition}{Definition}
+\newtheorem{definition}{\sffamily 定义}
+\numberwithin{definition}{section}
+%\newtheorem{lemma}{Lemma}
+\newtheorem{lemma}{\sffamily 引理}
+\numberwithin{lemma}{section}
+%\newtheorem{proposition}{Proposition}
+\newtheorem{proposition}{\sffamily 命题}
+\numberwithin{proposition}{section}
+%\newtheorem{corollary}{Corollary}
+\newtheorem{corollary}{{\sffamily 推论}}
+\numberwithin{corollary}{section}
+\theoremstyle{example}
+%\newtheorem{example}{Example}
+\newtheorem{example}{\sffamily 例}
+%\numberwithin{example}{section}
+\renewenvironment{proof}[1][证明]{\textbf{#1}:~}{\qed\par}
+%\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
+
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+
+%---------- 设置字体  ---------------
+\setbeamerfont{normal text}{family=\rmfamily}
+%\setbeamerfont{frametitle}{family=\sffamily}
+%\setbeamerfont{title}{family=\sffamily}
+%%\setbeamerfont{subtitle}{family=\sffamily}
+%\setbeamerfont{institute}{family=\rmfamily}
+%\setbeamerfont{author}{family=\rmfamily}
+%\setbeamerfont{date}{family=\rmfamily}
+%\setbeamerfont{headline}{family=\sffamily}
+%\setbeamerfont{footline}{family=\rmfamily}
+%\setbeamerfont{section in toc}{family=\rmfamily}
+%\setbeamerfont{subsection in toc}{family=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+
+
+%---------- 定义行距 ----------
+%\renewcommand{\baselinestretch}{1.0}
+
+%---------- 调节公式的间距 ----------
+%\AtBeginDocument{
+%	\setlength{\abovedisplayskip}{4pt plus 1pt minus 1pt}
+%	\setlength{\belowdisplayskip}{4pt plus 1pt minus 1pt}
+%	\setlength{\abovedisplayshortskip}{2pt}
+%	\setlength{\belowdisplayshortskip}{2pt}
+%	\setlength{\arraycolsep}{2pt}
+%}
+
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
+\makeatother
+
+%---------- 自定义命令 ----------
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
+\AtBeginSection[]{
+\begin{frame}
+  \frametitle{目录}
+  \tableofcontents[currentsection,currentsubsection]
+  %\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/shaded]
+  \addtocounter{framenumber}{-1}
+\end{frame}
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Short 题目]{Full Title of the Talk 题目} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{姓名}  % 名字
+\institute[NU] % 机构缩写
+{
+Name of University \\ % 机构全称
+\medskip
+\textit{name@email.com} % 邮件
+}
+\date[2020.6.23]{2020~年~6~月~23~日} % 日期
+
+
+\graphicspath{{./figures/}}
+
+\begin{document}
+
+{\setbeamertemplate{headline}{}
+\begin{frame}
+\titlepage
+\end{frame}}
+
+\begin{frame}
+\frametitle{目录}
+\tableofcontents%[hideallsubsections]
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{文本与 Block}
+%------------------------------------------------
+
+\begin{frame}{文本测试}
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+
+\vspace{1ex}
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+
+\end{frame}
+
+%-----------------------------------------------
+
+\begin{frame}
+\frametitle{Blocks of Highlighted Text}
+\begin{block}{Block Title}
+This is the block environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{block}
+
+\begin{exampleblock}{Block Title}
+This is the exampleblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{exampleblock}
+
+\begin{alertblock}{Block Title}
+This is the alertblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\section{列表环境与分栏}
+
+\begin{frame}
+\frametitle{列表环境}
+
+计数列表环境
+\begin{enumerate}
+\item 这是一个计数列表环境.
+\item 这是一个计数列表环境.
+\item 这是一个计数列表环境.
+\end{enumerate}
+
+\vspace{2ex}
+不计数列表环境
+\begin{itemize}[<+-| alert@+>]
+\item 这是一个不计数列表环境.
+\item 这是一个不计数列表环境.
+\item 这是一个不计数列表环境.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{左右分栏}  % Multiple Columns
+\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Left column and width
+\textbf{Heading}
+\begin{enumerate}
+\item Statement
+\item Explanation
+\item Example
+\end{enumerate}
+
+\column{.5\textwidth} % Right column and width
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\section{定理与表格}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{定理环境}
+\begin{definition} \upshape\rmfamily
+This is a definition environment. 这是一个定义环境.
+\end{definition}
+
+
+\begin{lemma} \upshape\rmfamily
+This is a lemma environment. 这是一个引理环境.
+\end{lemma}
+
+\begin{proposition} \upshape\rmfamily
+This is a proposition environment. 这是一个命题环境.
+\end{proposition}
+
+\begin{theorem}[Mass--energy] \upshape\rmfamily
+This is a theorem environment. 这是一个定理环境.
+\end{theorem}
+
+\begin{proof}
+  This is a proof environment. 这是一个证明环境.
+\end{proof}
+
+\end{frame}
+
+%------------------------------------------------
+
+
+\begin{frame}
+\frametitle{定理示例}
+
+\begin{theorem}[Lax-Milgram Lemma] \upshape
+Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
+\begin{equation}
+  \alert{
+  \left\{\begin{aligned}
+  &\text {Find } u \in X \text { such that } \\
+  &a(u, v)=F(v), \forall v \in X
+  \end{aligned} \right. }
+\end{equation}
+has a unique solution. Moreover, we have
+\begin{equation}
+  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
+\end{equation}
+\end{theorem}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Verbatim}
+\begin{example}[Theorem Slide Code]
+\begin{verbatim}
+\begin{frame}
+\frametitle{Theorem}
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
+\end{frame}\end{verbatim}
+\end{example}
+
+\begin{table}
+\caption{这是一个三线表.}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{表格环境}
+本文定义了新的可变长度左中右 (LCR) 格式, LCR 三个格式会根据表格宽度的设定自行控制宽度, 且其宽度相等, 方便设置和页面相同宽度的表格. 本文还定义了 P\{\} 格式可以设定某一列宽度 (如 P\{1cm\} 控制某一列的宽度为 1cm) 并居中.
+\begin{table}[!htp]
+\centering
+% PLCR已经定义
+\caption{某校学生身高体重样本.}
+\label{tab2:heightweight}
+\begin{tabularx}{0.9\textwidth}{lCCC}
+   \toprule
+	序号&年龄&身高&体重\\
+	\midrule
+	1&14&156&42\\
+	2&16&158&45\\
+	3&14&162&48\\
+	4&15&163&50\\
+    \cmidrule{2-4}
+	平均&15&159.75&46.25\\
+	\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{表格示例}
+\begin{table}[htp!]
+\centering
+\renewcommand\arraystretch{1.0} %定义表格高度
+% PLCR前面已经定义
+\caption{表格的描述.}
+\label{tab3:NumError}
+\begin{tabularx}{0.9\textwidth}{|P{1cm}|C|C|C|C|}
+\Xhline{2\arrayrulewidth}
+N  & A       & B    & C  & D   \\
+\Xhline{2\arrayrulewidth}
+1  & 9.20E-05 & 9.90E-05 & 1.00E-06 & 8.00E-06  \\
+2  & 9.80E-05 & 8.00E-05 & 7.00E-06 & 1.40E-05  \\
+3  & 4.00E-06 & 8.10E-05 & 8.80E-05 & 2.00E-05 \\
+4  & 8.50E-05 & 8.70E-05 & 1.90E-05 & 2.10E-05 \\
+5 & 8.60E-05 & 9.30E-05 & 2.50E-05 & 2.00E-06  \\
+6 & 1.70E-05 & 2.40E-05 & 7.60E-05 & 8.30E-05  \\
+7 & 2.30E-05 & 5.00E-06 & 8.20E-05 & 8.90E-05 \\
+8 & 7.90E-05 & 6.00E-06 & 1.30E-05 & 9.50E-05  \\
+9 & 1.00E-05 & 1.20E-05 & 9.40E-05 & 9.60E-05 \\
+\Xhline{2\arrayrulewidth}
+\end{tabularx}
+\end{table}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{插图环境}
+
+\begin{frame}
+\frametitle{插图环境}
+
+Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=0.5\linewidth]{image1}
+\caption{Caption of Figure 1.} \label{fig:A}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{两图并排}
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image1}
+\caption{Caption of Figure 1.}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image2}
+\caption{Caption of Figure 2.}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+\section{参考文献}
+%------------------------------------------------
+
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Citation}
+An example of the \verb|\cite| command to cite within the presentation:\\~
+
+This statement requires citation \cite{Smith2012}. \\~
+
+文献引用示例 \cite{LiLiu1997}, 可以修改引用文献样式.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Smith, 2012]{Smith2012} John Smith, Title of the publication, \emph{Journal Name}, 12(3):45--678, 2012.
+\bibitem[李荣华, 1997]{LiLiu1997} 李荣华, 刘播. 微分方程数值解法. 东南大学出版社, 1997.
+\end{thebibliography}
+}
+\end{frame}
+
+
+%------------------------------------------------
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+%\setbeamertemplate{headline}{}
+\begin{frame}
+\sffamily
+\begin{center}
+\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
+\end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
+
+
