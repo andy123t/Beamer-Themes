@@ -98,7 +98,8 @@
 %\newtheorem{example}{Example}
 \newtheorem{example}{\sffamily 例}
 %\numberwithin{example}{section}
-\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
+\renewenvironment{proof}[1][证明]{\textbf{#1}:~}{\qed\par}
+%\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
 
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
