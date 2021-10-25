@@ -62,7 +62,7 @@
 %\usepackage[UTF8,noindent]{ctex}
 
 %---------- Set line spacing ----------
-\renewcommand{\baselinestretch}{1.15}
+%\renewcommand{\baselinestretch}{1.15}
 
 %---------- Define new table commands ----------
 \newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
@@ -150,6 +150,8 @@ Name of University \\ % Your institution for the title page
 
 \begin{document}
 
+% only change the spacing of body text
+\setlength{\baselineskip}{15pt}
 
 \begin{frame}
 \titlepage
@@ -394,7 +396,7 @@ This statement requires citation \cite{Smith2012}.
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{headline}{}
 \begin{frame}
-\sffamily
+%\sffamily
 \begin{center}
 \HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
 \end{center}

@@ -9,29 +9,24 @@
 %--------------------------------------------------------------------------------
 
 %\documentclass[notheorems,11pt,compress]{beamer}
-\documentclass[notheorems]{beamer}
+\documentclass[notheorems,11pt]{beamer}
 
-\mode<presentation>{
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
 
-%------- Beamer theme ------
-\usetheme{Warsaw}
-%\usetheme{Madrid}
-%\usetheme{Boadilla}
-%\usetheme{Frankfurt}
-%\usetheme{CambridgeUS}
-%\usetheme{Montpellier}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
 
-%------- Color theme ------
-%\usecolortheme{rose}
-%\usecolortheme{orchid}
-%\usecolortheme{lily}
-%\usecolortheme{whale}
-%\usecolortheme{dolphin}
-%\usecolortheme{seahorse}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
 
-\setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
-\usefonttheme[onlymath]{serif}
-%\usefonttheme{serif}
+\usepackage[english]{babel}  % Show english numerate
+\metroset{block=fill}
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+%\usefonttheme[onlymath]{serif}
+\usefonttheme{serif}
 %\setbeamercovered{transparent}
 %\usetheme{boxes}
 
@@ -43,19 +38,25 @@
 %\setbeamertemplate{enumerate items}[square]
 %\setbeamertemplate{section in toc}[square]
 
-\setbeamertemplate{footline}%{shadow theme}
+\definecolor{iron}{RGB}{0,82,67}
+\definecolor{footed}{rgb}{0.5,0.2,0.5}
+\setbeamercolor{frametitle}{bg=iron}
+%\setbeamercolor{progress bar}{fg=iron,bg=iron}
+
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+
+\setbeamertemplate{footline}
 {%
-  \leavevmode%
-  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
-    \usebeamerfont{title in head/foot} \hfill \insertshorttitle \hfill \insertframenumber\,/\,\inserttotalframenumber%
-  \end{beamercolorbox}}%
-  \vskip0pt%
+\leavevmode%
+%\hskip1cm \fangsong \insertshortauthor~(\insertshortinstitute) ~~\textbar~~ \insertshorttitle
+\hfill\normalfont\color{footed}\insertframenumber\,/\,\inserttotalframenumber \kern1em \hfill
+\vskip4pt%
 }
 
-}
 
 %----------- 宏包 -------------
 %\usepackage[latin1]{inputenc}
@@ -75,6 +76,7 @@
 \usepackage{mathtools}
 \usepackage{tikz}
 
+\usepackage{scrextend}
 
 %---------- 定义表格命令 ----------
 \newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
@@ -83,28 +85,29 @@
 \newcolumntype{R}{>{\raggedright \arraybackslash}X}
 
 
-%---------- 设置定理环境  --------------
+
+%---------- 设置 定理环境  --------------
 \theoremstyle{plain}
 \setbeamertemplate{theorems}[numbered]
 %\theoremstyle{definition}
 %\newtheorem{theorem}{Theorem}
-\newtheorem{theorem}{\sffamily 定理}
+\newtheorem{theorem}{定理}
 \numberwithin{theorem}{section}
 %\newtheorem{definition}{Definition}
-\newtheorem{definition}{\sffamily 定义}
+\newtheorem{definition}{定义}
 \numberwithin{definition}{section}
 %\newtheorem{lemma}{Lemma}
-\newtheorem{lemma}{\sffamily 引理}
+\newtheorem{lemma}{引理}
 \numberwithin{lemma}{section}
 %\newtheorem{proposition}{Proposition}
-\newtheorem{proposition}{\sffamily 命题}
+\newtheorem{proposition}{命题}
 \numberwithin{proposition}{section}
 %\newtheorem{corollary}{Corollary}
-\newtheorem{corollary}{\sffamily 推论}
+\newtheorem{corollary}{{推论}}
 \numberwithin{corollary}{section}
 \theoremstyle{example}
 %\newtheorem{example}{Example}
-\newtheorem{example}{\sffamily 例}
+\newtheorem{example}{例}
 %\numberwithin{example}{section}
 \renewenvironment{proof}[1][证明]{\textbf{#1}:~}{\qed\par}
 %\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
@@ -114,12 +117,15 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
+%\addtokomafont{labelinglabel}{\normalfont}%\bfseries
+%\usepackage{xunicode-addon}
+%\renewfontfamily\useTIPAfont{Segoe UI}
 
 %---------- 设置字体  ---------------
-\setbeamerfont{normal text}{family=\rmfamily}
+%\setbeamerfont{normal text}{family=\rmfamily}
 %\setbeamerfont{frametitle}{family=\sffamily}
 %\setbeamerfont{title}{family=\sffamily}
-%%\setbeamerfont{subtitle}{family=\sffamily}
+%\setbeamerfont{subtitle}{family=\sffamily}
 %\setbeamerfont{institute}{family=\rmfamily}
 %\setbeamerfont{author}{family=\rmfamily}
 %\setbeamerfont{date}{family=\rmfamily}
@@ -127,12 +133,11 @@
 %\setbeamerfont{footline}{family=\rmfamily}
 %\setbeamerfont{section in toc}{family=\rmfamily}
 %\setbeamerfont{subsection in toc}{family=\rmfamily}
-\AtBeginDocument{\usebeamerfont{normal text}}
-
+%\AtBeginDocument{\usebeamerfont{normal text}}
 
 
 %---------- 定义行距 ----------
-%\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\baselinestretch}{1.15}
 
 %---------- 调节公式的间距 ----------
 %\AtBeginDocument{
@@ -144,7 +149,7 @@
 %}
 
 \makeatletter
-\newcommand\HUGE{\@setfontsize\Huge{28}{32}}
+\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
 \makeatother
 
 %---------- 自定义命令 ----------
@@ -160,6 +165,15 @@
 %  \addtocounter{framenumber}{-1}
 %\end{frame}
 %}
+
+
+%\setmonofont{Consolas}
+%\setmonofont{Latin Modern Mono}
+%\title{Metropolis}
+%\subtitle{A modern beamer theme}
+%\date{\today}
+%\author{Matthias Vogelgesang}
+%\institute{Center for modern beamer themes}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -182,8 +196,7 @@ Name of University \\ % 机构全称
 \begin{document}
 
 % only change the spacing of body text
-\setlength{\baselineskip}{15pt}
-
+%\setlength{\baselineskip}{15pt}
 
 \begin{frame}
 \titlepage
@@ -456,8 +469,6 @@ This statement requires citation \cite{Smith2012}. \\~
 \end{frame}
 
 %------------------------------------------------
-\section{}
-%------------------------------------------------
 
 \begin{frame}
 \frametitle{References}
@@ -473,14 +484,27 @@ This statement requires citation \cite{Smith2012}. \\~
 %------------------------------------------------
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{headline}{}
-\begin{frame}
+%\begin{frame}
 %\sffamily
-\begin{center}
-\HUGE \textcolor[RGB]{165,3,3}{谢\quad 谢! \\[8pt]
-Thank you!}
-\end{center}
-\end{frame}
+%\Huge{\centerline{The End}}
+%\end{frame}
 
 %----------------------------------------------------------------------------------------
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+%\setbeamertemplate{headline}{}
+%\begin{frame}
+%\sffamily
+%\begin{center}
+%\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
+%\end{center}
+%\end{frame}
+
+
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+
 
 \end{document}
+
+

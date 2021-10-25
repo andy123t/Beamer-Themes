@@ -118,7 +118,6 @@
 \AtBeginDocument{\usebeamerfont{normal text}}
 
 
-
 %---------- 定义行距 ----------
 %\renewcommand{\baselinestretch}{1.0}
 
@@ -132,7 +131,7 @@
 %}
 
 \makeatletter
-\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
+\newcommand\HUGE{\@setfontsize\Huge{28}{32}}
 \makeatother
 
 %---------- 自定义命令 ----------
@@ -168,6 +167,9 @@ Name of University \\ % 机构全称
 \graphicspath{{./figures/}}
 
 \begin{document}
+
+% only change the spacing of body text
+\setlength{\baselineskip}{15pt}
 
 \begin{frame}
 \titlepage
@@ -456,9 +458,10 @@ This statement requires citation \cite{Smith2012}. \\~
 %\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{headline}{}
 \begin{frame}
-\sffamily
+%\sffamily
 \begin{center}
-\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
+\HUGE \textcolor[RGB]{165,3,3}{谢\quad 谢! \\[8pt]
+Thank you!}
 \end{center}
 \end{frame}
 
