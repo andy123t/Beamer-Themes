@@ -1,0 +1,499 @@
+%======================================================%
+%   Beamer Presentation
+%   LaTeX Template
+%   compile using PDFTeXify or PDFLaTeX
+%======================================================%
+
+%--------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%--------------------------------------------------------------------------------
+
+\documentclass[notheorems,11pt,dvipsnames]{beamer}
+
+
+%------- Beamer theme ------
+\usetheme[progressbar=none]{metropolis}
+\metroset{sectionpage=none}
+
+\usepackage[scale=2]{ccicons}
+
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+
+\metroset{block=fill}
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\usefonttheme[onlymath]{serif}
+\usefonttheme{professionalfonts}
+
+%\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}{}
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+
+%\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]  % ball, circle
+%\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{enumerate items}[default]
+%\setbeamertemplate{section in toc}[circle]
+\setbeamertemplate{section in toc}
+{\leavevmode\leftskip=2ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor{section number projected}%
+    \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+      \color{darkorange}
+      \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.3ex}
+      \pgfusepath{fill}
+      \pgftext[base]{\color{fg}\inserttocsectionnumber}
+    \end{pgfpicture}\kern1.25ex%
+  }%
+  \inserttocsection\par
+}
+
+
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+
+\definecolor{darkblue}{rgb}{0.02,0.24,0.44}
+\definecolor{darkorange}{rgb}{0.80,0.4,0.07}
+\definecolor{lightgray}{rgb}{0.78,0.78,0.78}
+\definecolor{darkgray}{rgb}{0.30,0.30,0.30}
+\definecolor{darkgreen}{rgb}{0.02,0.18,0.20}
+\definecolor{footer}{rgb}{0.5,0.2,0.5}
+
+\setbeamercolor{frametitle}{fg=darkblue,bg=black!10}
+\setbeamercolor{section in head/foot}{bg=black,fg=darkorange}
+\setbeamercolor{lower separation line head}{bg=darkblue}
+\setbeamertemplate{section in head/foot shaded}{\color{lightgray}
+\usebeamertemplate{section in head/foot}}
+
+\setbeamercolor{title in head/foot}{bg=darkgreen,fg=black!5}
+\setbeamercolor{section in toc}{fg=darkorange}
+
+%\setbeamertemplate{section in toc}[sections numbered]
+%\setbeamertemplate{subsection in toc}[subsections numbered]
+%\setbeamertemplate{section in toc}[ball unnumbered]
+%\setbeamertemplate{subsection in toc}[ball unnumbered]
+
+\setbeamerfont{caption name}{family=\rmfamily,series=\normalfont}
+%\setbeamertemplate{caption label separator}[period]
+
+% change the style of headline
+\setbeamertemplate{headline}{
+\begin{beamercolorbox}[ht=4.5ex]{section in head/foot} %,dp=0.0ex
+   \vskip2pt\insertsectionnavigationhorizontal{\textwidth}{}{}\vskip2pt
+   %\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+\end{beamercolorbox}
+\begin{beamercolorbox}[colsep=1.5pt]{lower separation line head} %
+\end{beamercolorbox}
+}
+
+
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.25ex]{frametitle}
+        \hspace*{1.5ex}\insertframetitle%
+    \end{beamercolorbox}%
+}
+
+
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot} ~~\insertshortauthor~(\insertshortinstitute) \hfill
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\centering \insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=0.25\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+    \usebeamerfont{title in head/foot} \hfill
+    \insertframenumber\,/\,\inserttotalframenumber~~%
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+
+%----------- Packages -------------
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
+\usepackage{url,hyperref}
+\usepackage{tabularx,array,makecell}
+\usepackage{color,xcolor}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+%-------------- set fonts ------------
+\setbeamerfont{normal text}{family=\rmfamily}
+\setbeamerfont{frametitle}{family=\rmfamily}
+\setbeamerfont{title}{family=\sffamily}
+\setbeamerfont{subtitle}{family=\sffamily}
+\setbeamerfont{institute}{family=\sffamily}
+\setbeamerfont{author}{family=\sffamily}
+\setbeamerfont{date}{family=\sffamily}
+\setbeamerfont{headline}{family=\sffamily,series=\bfseries}
+\setbeamerfont{footline}{family=\sffamily} %\kaishu
+\setbeamerfont{section in toc}{family=\rmfamily}
+\setbeamerfont{subsection in toc}{family=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
+
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=black!10}
+\setbeamercolor{institute}{fg=white}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{date}{fg=white}
+
+
+%---------- Theorem environment ----------
+\setbeamertemplate{theorems}[numbered] %nonumbered
+\newtheorem{theorem}{Theorem}
+%\numberwithin{theorem}{section}
+\newtheorem{definition}{Definition}
+%\numberwithin{definition}{section}
+\newtheorem{lemma}{Lemma}
+%\numberwithin{lemma}{section}
+\newtheorem{proposition}{Proposition}
+%\numberwithin{proposition}{section}
+\newtheorem{corollary}{Corollary}
+%\numberwithin{corollary}{section}
+\theoremstyle{example}
+\newtheorem{example}{Example}
+%\numberwithin{example}{section}
+\renewenvironment{proof}[1][Proof]{\textit{#1}:~}{\qed\par}
+
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{28}{32}}
+\makeatother
+
+
+%---------- Define new table commands ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{>{\quad}X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedright \arraybackslash}X}
+
+
+\title[Short title]{Full Title of the Talk}
+\subtitle{A modern beamer theme}
+\author[Matthias V.]{Matthias Vogelgesang} % Your name
+\institute[CMBT]{Center for modern beamer themes \\ % Your institution for the title page
+\medskip
+\textit{xyz@math.univ.edu.} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+\graphicspath{{./figures/}}
+
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+%\maketitle
+
+% only change the spacing of body text
+%\setlength{\baselineskip}{15pt}
+
+%\setbeamertemplate{headline}{}
+{\thispagestyle{empty}
+\setbeamercolor{background canvas}{bg=darkgray}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}}
+
+%\begin{frame}
+%\frametitle{Outline}
+%\tableofcontents
+%\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\vskip -5.6pt
+\hspace*{1.5em}
+\parbox[t]{.95\textwidth}{
+  \begin{minipage}[c][0.6\textheight]{\textwidth}
+  \tableofcontents[hideallsubsections]
+  \end{minipage}
+}
+\end{frame}
+
+
+%--------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%--------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Paragraphs of Text}
+This is paragraphs of text. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. \\~\\
+
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Lists}
+
+\begin{enumerate}
+  \item This is a enumerate environment.
+  \item This is a enumerate environment.
+  \item This is a enumerate environment.
+\end{enumerate}
+
+\vspace{2ex}
+\begin{itemize}[<+-| alert@+>]
+\item This is a itemize environment.
+\item This is a itemize environment.
+\item This is a itemize environment.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Blocks of Highlighted Text}
+\begin{block}{Block Title}
+This is the block environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{block}
+
+\begin{exampleblock}{Block Title}
+This is the exampleblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{exampleblock}
+
+\begin{alertblock}{Block Title}
+This is the alertblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+\end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Multiple Columns}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{0.5\textwidth}
+This is a text in first column.
+$$E=mc^2$$
+\begin{itemize}
+\item First item
+\item Second item
+\end{itemize}
+
+\column{0.5\textwidth}
+This text will be in the second column
+and on a second tought this is a nice looking
+layout in some cases.
+
+\end{columns}
+\end{frame}
+
+%------------------------------------------------
+\section{Second Section}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Theorem}
+
+\begin{definition}
+This is a definition environment.
+\end{definition}
+
+
+\begin{lemma}
+This is a lemma environment.
+\end{lemma}
+
+\begin{proposition}
+This is a proposition environment.
+\end{proposition}
+
+\begin{theorem}[Mass--energy]
+This is a theorem environment.
+\end{theorem}
+
+\begin{proof}
+  This is a proof environment.
+\end{proof}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Formula and Table}
+
+This is Pythagorean's theorem
+\begin{equation}\label{Pythagorean}
+  a^2+b^2=c^2.
+\end{equation}
+
+This is a simple three-line table.
+\begin{table}
+\caption{Table caption}
+\begin{tabular}{l l l}
+\toprule
+Treatments & Response 1 & Response 2 \\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{}
+The new command PLCR is defined to set the length of the width of the table. They can be used in the tabularx environment.
+
+\begin{table}[!htp]
+\centering
+\renewcommand\arraystretch{1.05}
+\caption{A sample of the height and weight of students.}
+\label{tab2:heightweight}
+% PLCR is defined in the preamble
+\begin{tabularx}{0.8\textwidth}{lCCC}
+   \toprule %\Xhline{2\arrayrulewidth}
+	Number &  Age & Height & Weight\\
+	\midrule
+	1&14&156&42\\
+	2&16&158&45\\
+	3&14&162&48\\
+	4&15&163&50\\
+    \cmidrule{2-4}
+	Mean &15&159.75&46.25\\
+	\bottomrule
+\end{tabularx}
+\end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Verbatim}
+\begin{example}[Theorem Slide Code]
+\begin{verbatim}
+\begin{frame}
+\frametitle{Theorem}
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
+\end{frame}\end{verbatim}
+\end{example}
+
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Figure}
+
+Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=0.6\linewidth]{image1.eps}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Two pictures}
+\begin{figure}[htb]
+\centering
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image1}
+\caption{Caption of Figure 1.}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\centering
+\includegraphics[width=\linewidth]{image2}
+\caption{Caption of Figure 2.}
+\end{minipage}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+\section{Third Section}
+%------------------------------------------------
+
+\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Citation}
+An example of the \verb|\cite| command to cite within the presentation:\\~
+
+This statement requires citation \cite{Smith2012}.
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Smith, 2012]{Smith2012} John Smith. Title of the publication. \emph{Journal Name}, 12(3):45--678, 2012.
+\end{thebibliography}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[plain,standout]
+  \HUGE Thank you!
+\end{frame}
+
+
+
+%\begin{frame}[standout]
+%  Questions?
+%\end{frame}
+
+%\appendix
+
+%\begin{frame}[fragile]{Backup slides}
+%  Sometimes, it is useful to add slides at the end of your presentation to
+%  refer to during audience questions.
+%
+%  The best way to do this is to include the \verb|appendixnumberbeamer|
+%  package in your preamble and call \verb|\appendix| before your backup slides.
+%
+%  \themename will automatically turn off slide numbering and progress bars for
+%  slides in the appendix.
+%\end{frame}
+
+%\begin{frame}[allowframebreaks]{References}
+%
+%  \bibliography{demo}
+%  \bibliographystyle{abbrv}
+%
+%\end{frame}
+
+\end{document}
+
