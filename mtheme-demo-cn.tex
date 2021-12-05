@@ -32,7 +32,10 @@
 
 %\setbeamertemplate{headline}{}
 %\setbeamertemplate{footline}{}
-\setbeamertemplate{blocks}[rounded][shadow=true]
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+%\setbeamertemplate{blocks}[default]
+\setbeamertemplate{blocks}[shadow=true]
+%\setbeamercolor{block body}{bg=black!2}
 \setbeamertemplate{navigation symbols}{}
 %\setbeamertemplate{itemize items}[square]  % ball, circle
 %\setbeamertemplate{enumerate items}[square]
@@ -112,6 +115,8 @@
 \renewenvironment{proof}[1][证明]{\textbf{#1}:~}{\qed\par}
 %\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
 
+
+\setbeamerfont{caption name}{family=\rmfamily,series=\normalfont}
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
 \numberwithin{table}{section}

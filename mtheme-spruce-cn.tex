@@ -8,60 +8,64 @@
 %   PACKAGES AND THEMES
 %--------------------------------------------------------------------------------
 
-%\documentclass[notheorems,11pt,compress]{beamer}
-\documentclass[notheorems,11pt]{beamer}
+\documentclass[notheorems,11pt,compress]{beamer}
 
+
+%------- Beamer theme ------
 \usetheme[progressbar=frametitle]{metropolis}
 
-%\definecolor{iron}{RGB}{0,82,67}
-\definecolor{foot}{rgb}{0.5,0.2,0.5}
-\setbeamercolor{frametitle}{fg=black,bg=white}
-\definecolor{color1}{rgb}{0.2,0.3,0.96}
-\definecolor{color2}{rgb}{0.75,0.75,0.75}
-\setbeamercolor{progress bar}{fg=color1,bg=color2}
-\setbeamercolor{background canvas}{bg=white}
+%------- Color theme ------
+\usecolortheme{spruce}
+%\usecolortheme{rose}
+%\usecolortheme{orchid}
+%\usecolortheme{lily}
+%\usecolortheme{whale}
+%\usecolortheme{dolphin}
+%\usecolortheme{seahorse}
+
+%\metroset{block=fill}
 
 \makeatletter
-\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@titleseparator@linewidth}{0.5pt}
 \setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
-\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{0.5pt}
 \makeatother
 
 \makeatletter
-\setlength{\metropolis@frametitle@padding}{1.6ex} % <- default 2.2 ex
+\setlength{\metropolis@frametitle@padding}{1.8ex} % <- default 2.2 ex
 \makeatother
 
-%\setbeamertemplate{footline}{}
-\setbeamertemplate{footline}{
-  \hfill%
-  %\usebeamercolor[fg]{page number in head/foot}%
-  \usebeamercolor[gray]{page number in head/foot}%
-  \usebeamerfont{page number in head/foot}%
-  \insertframenumber \,/\,\inserttotalframenumber
-  \kern1em\vskip5pt%
-}
-
-
+%\setbeamercovered{transparent}
 %\usefonttheme[onlymath]{serif}
 \usefonttheme{serif}
 \usefonttheme{professionalfonts}
-%\setbeamercovered{transparent}
 %\usetheme{boxes}
+
 
 %\setbeamertemplate{headline}{}
 %\setbeamertemplate{footline}{}
-\setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{blocks}[default]
+\setbeamercolor{block body}{bg=black!2}
+%\setbeamertemplate{navigation symbols}{}
 %\setbeamertemplate{itemize items}[square]  % ball, circle
 %\setbeamertemplate{enumerate items}[square]
 %\setbeamertemplate{section in toc}[square]
 
-%----------- 宏包 -------------
-%\usepackage[latin1]{inputenc}
-%\usepackage{times}
-%\usepackage[T1]{fontenc}
+\definecolor{footer}{rgb}{0.5,0.2,0.5}
+\setbeamertemplate{footline}{
+  \hfill%
+  %\usebeamercolor[fg]{page number in head/foot}%
+  \usebeamercolor[footer]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot} \tiny
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern1.5em\vskip5pt%
+}
 
+
+%--------- 宏包  ----------
 \usepackage[UTF8,noindent]{ctex}
+%\usepackage{newtxtext}
 %\usepackage[english]{babel}
 \usepackage{amsmath,amssymb,version}
 \usepackage{graphicx,fancybox,mathrsfs,multirow}
@@ -74,17 +78,37 @@
 \usepackage{mathtools}
 \usepackage{tikz}
 
-\usepackage{scrextend}
+%---------- 定义行距 ----------
+\renewcommand{\baselinestretch}{1.15}
 
-%---------- 定义表格命令 ----------
+%---------- 定义表格新命令 ----------
 \newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
-\newcolumntype{L}{X}
+\newcolumntype{L}{>{\quad}X}
 \newcolumntype{C}{>{\centering \arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft \arraybackslash}X}
+\newcolumntype{R}{>{\raggedright \arraybackslash}X}
 
 
+%---------- 设置中文字体  ---------------
+\setbeamerfont{normal text}{family=\rmfamily}
+%\setbeamerfont{frametitle}{family=\sffamily}
+%\setbeamerfont{title}{family=\sffamily}
+%%\setbeamerfont{subtitle}{family=\sffamily}
+%\setbeamerfont{institute}{family=\rmfamily}
+%\setbeamerfont{author}{family=\rmfamily}
+%\setbeamerfont{date}{family=\rmfamily}
+%\setbeamerfont{headline}{family=\sffamily}
+%\setbeamerfont{footline}{family=\rmfamily}
+%\setbeamerfont{section in toc}{family=\rmfamily}
+%\setbeamerfont{subsection in toc}{family=\rmfamily}
+\AtBeginDocument{\usebeamerfont{normal text}}
 
-%---------- 设置 定理环境  --------------
+\setbeamerfont{caption name}{family=\rmfamily,series=\normalfont}
+\setbeamertemplate{caption}[numbered]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+%---------- 定理设置  --------------
 \theoremstyle{plain}
 \setbeamertemplate{theorems}[numbered]
 %\theoremstyle{definition}
@@ -101,7 +125,7 @@
 \newtheorem{proposition}{命题}
 \numberwithin{proposition}{section}
 %\newtheorem{corollary}{Corollary}
-\newtheorem{corollary}{{推论}}
+\newtheorem{corollary}{引理}
 \numberwithin{corollary}{section}
 \theoremstyle{example}
 %\newtheorem{example}{Example}
@@ -110,32 +134,6 @@
 \renewenvironment{proof}[1][证明]{\textbf{#1}:~}{\qed\par}
 %\renewenvironment{proof}[1][证明]{{\heiti #1}:~}{\qed\par}
 
-\setbeamertemplate{caption}[numbered]
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
-
-%\addtokomafont{labelinglabel}{\normalfont}%\bfseries
-%\usepackage{xunicode-addon}
-%\renewfontfamily\useTIPAfont{Segoe UI}
-
-%---------- 设置字体  ---------------
-%\setbeamerfont{normal text}{family=\rmfamily}
-%\setbeamerfont{frametitle}{family=\sffamily}
-%\setbeamerfont{title}{family=\sffamily}
-%\setbeamerfont{subtitle}{family=\sffamily}
-%\setbeamerfont{institute}{family=\rmfamily}
-%\setbeamerfont{author}{family=\rmfamily}
-%\setbeamerfont{date}{family=\rmfamily}
-%\setbeamerfont{headline}{family=\sffamily}
-%\setbeamerfont{footline}{family=\rmfamily}
-%\setbeamerfont{section in toc}{family=\rmfamily}
-%\setbeamerfont{subsection in toc}{family=\rmfamily}
-%\AtBeginDocument{\usebeamerfont{normal text}}
-
-
-%---------- 定义行距 ----------
-%\renewcommand{\baselinestretch}{1.15}
 
 %---------- 调节公式的间距 ----------
 %\AtBeginDocument{
@@ -146,34 +144,27 @@
 %	\setlength{\arraycolsep}{2pt}
 %}
 
+
 \makeatletter
-\newcommand\HUGE{\@setfontsize\Huge{28}{32}}
+\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
 \makeatother
+
+
+%\AtBeginSection[]{
+%\begin{frame}
+%  \frametitle{Outline} %\small
+%  \tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/shaded]
+%  \addtocounter{framenumber}{-1}
+%\end{frame}
+%}
+
 
 %---------- 自定义命令 ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 
 
-%\AtBeginSection[]{
-%\begin{frame}
-%  \frametitle{目录}
-%  \tableofcontents[currentsection,currentsubsection]
-%  %\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/shaded]
-%  \addtocounter{framenumber}{-1}
-%\end{frame}
-%}
-
-
-%\setmonofont{Consolas}
-%\setmonofont{Latin Modern Mono}
-%\title{Metropolis}
-%\subtitle{A modern beamer theme}
-%\date{\today}
-%\author{Matthias Vogelgesang}
-%\institute{Center for modern beamer themes}
-
-%----------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
@@ -193,16 +184,14 @@ Name of University \\ % 机构全称
 
 \begin{document}
 
-% only change the spacing of body text
-\setlength{\baselineskip}{16pt}
 
 \begin{frame}
 \titlepage
 \end{frame}
 
 \begin{frame}
-\frametitle{目录}
-\tableofcontents%[hideallsubsections]
+\frametitle{Outline}
+\tableofcontents
 \end{frame}
 
 %----------------------------------------------------------------------------------------
@@ -468,6 +457,7 @@ This statement requires citation \cite{Smith2012}. \\~
 
 %------------------------------------------------
 
+
 \begin{frame}
 \frametitle{References}
 \footnotesize{
@@ -484,26 +474,21 @@ This statement requires citation \cite{Smith2012}. \\~
 %\setbeamertemplate{headline}{}
 %\begin{frame}
 %\sffamily
-%\Huge{\centerline{The End}}
-%\end{frame}
-
-%----------------------------------------------------------------------------------------
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\setbeamertemplate{headline}{}
-%\begin{frame}
-%\sffamily
 %\begin{center}
 %\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
 %\end{center}
 %\end{frame}
 
 
+\setbeamertemplate{footline}{}
 \begin{frame}[standout]
-%Questions?
-\HUGE Thank you!
+
+\huge{谢\quad 谢! \\[8pt]
+Thank you!}
+
 \end{frame}
 
+%------------------------------------------------
 
 \end{document}
-
 
